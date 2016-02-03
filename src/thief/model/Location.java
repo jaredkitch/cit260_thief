@@ -6,6 +6,7 @@
 package thief.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -15,4 +16,60 @@ public class Location implements Serializable{
     
     private double locationNumber;
     private int[] availableCommands;
+
+    public Location() {
+    }
+
+    public double getLocationNumber() {
+        return locationNumber;
+    }
+
+    public void setLocationNumber(double locationNumber) {
+        this.locationNumber = locationNumber;
+    }
+
+    public int[] getAvailableCommands() {
+        return availableCommands;
+    }
+
+    public void setAvailableCommands(int[] availableCommands) {
+        this.availableCommands = availableCommands;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.locationNumber) ^ (Double.doubleToLongBits(this.locationNumber) >>> 32));
+        hash = 59 * hash + Arrays.hashCode(this.availableCommands);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (Double.doubleToLongBits(this.locationNumber) != Double.doubleToLongBits(other.locationNumber)) {
+            return false;
+        }
+        if (!Arrays.equals(this.availableCommands, other.availableCommands)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" + "locationNumber=" + locationNumber + ", availableCommands=" + availableCommands + '}';
+    }
+    
+    
+    
 }
