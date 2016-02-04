@@ -23,7 +23,24 @@ public class Thief {
         
 }
     public static void tishaTests() {
+        Game game = new Game();
+        game.setTurnsRemaining(50);
+        System.out.println(game.toString());
         
+        Guard guard = new Guard();
+        guard.setLocation(5);
+        guard.setSleepState("asleep");
+        System.out.println(guard.toString());
+    
+        StealableItems stealableItems = new StealableItems();
+        stealableItems.setName("Tish");
+        stealableItems.setValue(100000);
+        System.out.println(stealableItems.toString());
+        
+        StolenItems stolenItems = new StolenItems();
+        stolenItems.setTotalValue(500000);
+        stolenItems.setItemsStillInPlay("painting, vase, diamonds");
+        System.out.println(stolenItems.toString());
     }
     
     public static void groupTests() {

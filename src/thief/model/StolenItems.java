@@ -16,7 +16,7 @@ import java.util.Objects;
 public class StolenItems implements Serializable{
     
     // class instance variables
-    private int[] totalValue;
+    private int totalValue;
     private String itemsStillInPlay;
 
     public StolenItems() {
@@ -24,11 +24,11 @@ public class StolenItems implements Serializable{
     
     
 
-    public int[] getTotalValue() {
+    public int getTotalValue() {
         return totalValue;
     }
 
-    public void setTotalValue(int[] totalValue) {
+    public void setTotalValue(int totalValue) {
         this.totalValue = totalValue;
     }
 
@@ -43,17 +43,17 @@ public class StolenItems implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Arrays.hashCode(this.totalValue);
-        hash = 59 * hash + Objects.hashCode(this.itemsStillInPlay);
+        hash = 13 * hash + this.totalValue;
+        hash = 13 * hash + Objects.hashCode(this.itemsStillInPlay);
         return hash;
     }
+
+    
 
     @Override
     public String toString() {
         return "StolenItems{" + "totalValue=" + totalValue + ", itemsStillInPlay=" + itemsStillInPlay + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -64,7 +64,7 @@ public class StolenItems implements Serializable{
             return false;
         }
         final StolenItems other = (StolenItems) obj;
-        if (!Arrays.equals(this.totalValue, other.totalValue)) {
+        if (this.totalValue != other.totalValue) {
             return false;
         }
         if (!Objects.equals(this.itemsStillInPlay, other.itemsStillInPlay)) {
@@ -72,6 +72,10 @@ public class StolenItems implements Serializable{
         }
         return true;
     }
+    
+    
+
+    
     
     
     

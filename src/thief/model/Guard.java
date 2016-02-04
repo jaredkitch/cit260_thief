@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Guard implements Serializable{
     
     // class instance variables
-    private int[] location;
+    private int location;
     private String sleepState;
 
     public Guard() {
@@ -24,11 +24,11 @@ public class Guard implements Serializable{
     
     
 
-    public int[] getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(int[] location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
@@ -42,18 +42,18 @@ public class Guard implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Arrays.hashCode(this.location);
-        hash = 41 * hash + Objects.hashCode(this.sleepState);
+        int hash = 3;
+        hash = 89 * hash + this.location;
+        hash = 89 * hash + Objects.hashCode(this.sleepState);
         return hash;
     }
+
+    
 
     @Override
     public String toString() {
         return "Guard{" + "location=" + location + ", sleepState=" + sleepState + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -64,7 +64,7 @@ public class Guard implements Serializable{
             return false;
         }
         final Guard other = (Guard) obj;
-        if (!Arrays.equals(this.location, other.location)) {
+        if (this.location != other.location) {
             return false;
         }
         if (!Objects.equals(this.sleepState, other.sleepState)) {
@@ -72,6 +72,10 @@ public class Guard implements Serializable{
         }
         return true;
     }
+    
+    
+
+    
     
     
     
