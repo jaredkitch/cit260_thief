@@ -21,6 +21,30 @@ public class Map implements Serializable{
     public Map() {
     }
 
+    public double getX_axis() {
+        return x_axis;
+    }
+
+    public void setX_axis(double x_axis) {
+        this.x_axis = x_axis;
+    }
+
+    public double getY_axis() {
+        return y_axis;
+    }
+
+    public void setY_axis(double y_axis) {
+        this.y_axis = y_axis;
+    }
+
+    public double getZ_axis() {
+        return z_axis;
+    }
+
+    public void setZ_axis(double z_axis) {
+        this.z_axis = z_axis;
+    }
+    
     public double getAssociatedLocation() {
         return associatedLocation;
     }
@@ -52,6 +76,11 @@ public class Map implements Serializable{
         }
         final Map other = (Map) obj;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Map{" + "x_axis=" + x_axis + ", y_axis=" + y_axis + ", z_axis=" + z_axis + ", associatedLocation=" + associatedLocation + '}';
     }
     
        
