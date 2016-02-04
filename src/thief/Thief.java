@@ -10,7 +10,7 @@ import java.util.Set;
 import thief.model.*;
 /**
  *
- * @author Jared
+ * @author Jon, Jared, Tisha
  */
 public class Thief {
 

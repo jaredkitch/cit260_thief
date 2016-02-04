@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- *
+ *   @author Jon, Jared, Tisha
  */
 public class Player implements Serializable {
     
