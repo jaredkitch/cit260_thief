@@ -28,6 +28,16 @@ public class Location implements Serializable{
         this.locationNumber = locationNumber;
     }
 
+    public int getAvailableCommands() {
+        return availableCommands;
+    }
+
+    public void setAvailableCommands(int availableCommands) {
+        this.availableCommands = availableCommands;
+    }
+
+    
+  
     @Override
     public int hashCode() {
         int hash = 5;
