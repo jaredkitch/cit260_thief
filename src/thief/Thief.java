@@ -55,19 +55,24 @@ public class Thief {
     
 }
     public static void jaredTests() {
+        
+        // Inventory test cases
         Inventory inventory = new Inventory();
         inventory.setSuppliesInInventory(5);
         System.out.println(inventory.toString());
         
+        // Supplies test cases
         Supplies supplies = new Supplies();
         supplies.setNames("bomb");
         supplies.setSupplyID(2);
         System.out.println(supplies.toString());
         
+        // Van test cases
         Van van = new Van();
         van.setAvailableSupplies(2);
         System.out.println(van.toString());
 }
+    
     public static void tishaTests() {
         
     }
