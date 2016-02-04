@@ -4,42 +4,42 @@
 package thief.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.Objects;
 
 /**
- *
+ *  @author Jared
  */
 public class Supplies implements Serializable {
     
     // class instance variables
-    private String[] names;
-    private int[] supplyID;
+    private String names;
+    private int supplyID;
 
     public Supplies() {
         
     }
     
-    public String[] getNames() {
+    public String getNames() {
         return names;
     }
 
-    public void setNames(String[] names) {
+    public void setNames(String names) {
         this.names = names;
     }
 
-    public int[] getSupplyID() {
+    public int getSupplyID() {
         return supplyID;
     }
 
-    public void setSupplyID(int[] supplyID) {
+    public void setSupplyID(int supplyID) {
         this.supplyID = supplyID;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 13 * hash + Arrays.deepHashCode(this.names);
-        hash = 13 * hash + Arrays.hashCode(this.supplyID);
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.names);
+        hash = 13 * hash + this.supplyID;
         return hash;
     }
 
@@ -55,10 +55,10 @@ public class Supplies implements Serializable {
             return false;
         }
         final Supplies other = (Supplies) obj;
-        if (!Arrays.deepEquals(this.names, other.names)) {
+        if (this.supplyID != other.supplyID) {
             return false;
         }
-        if (!Arrays.equals(this.supplyID, other.supplyID)) {
+        if (!Objects.equals(this.names, other.names)) {
             return false;
         }
         return true;

@@ -4,25 +4,24 @@
 package thief.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 /**
- *
+ *  @author Jared
  */
 public class Inventory implements Serializable {
     
     // class instance variables
-    private int[] suppliesInInventory;
+    private int suppliesInInventory;
 
     public Inventory() {
         
     }
 
-    public int[] getSuppliesInInventory() {
+    public int getSuppliesInInventory() {
         return suppliesInInventory;
     }
 
-    public void setSuppliesInInventory(int[] suppliesInInventory) {
+    public void setSuppliesInInventory(int suppliesInInventory) {
         this.suppliesInInventory = suppliesInInventory;
     }
     
@@ -44,7 +43,7 @@ public class Inventory implements Serializable {
             return false;
         }
         final Inventory other = (Inventory) obj;
-        if (!Arrays.equals(this.suppliesInInventory, other.suppliesInInventory)) {
+        if (this.suppliesInInventory != other.suppliesInInventory) {
             return false;
         }
         return true;
@@ -55,5 +54,4 @@ public class Inventory implements Serializable {
         return "Inventory{" + "suppliesInInventory=" + suppliesInInventory + '}';
     }
 
-        
 }
