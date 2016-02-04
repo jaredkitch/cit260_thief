@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class Location implements Serializable{
     
     private double locationNumber;
-    private int[] availableCommands;
+    private int availableCommands;
 
     public Location() {
     }
@@ -28,19 +28,11 @@ public class Location implements Serializable{
         this.locationNumber = locationNumber;
     }
 
-    public int[] getAvailableCommands() {
-        return availableCommands;
-    }
-
-    public void setAvailableCommands(int[] availableCommands) {
-        this.availableCommands = availableCommands;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.locationNumber) ^ (Double.doubleToLongBits(this.locationNumber) >>> 32));
-        hash = 59 * hash + Arrays.hashCode(this.availableCommands);
+        int hash = 5;
+        hash = 89 * hash + (int) (Double.doubleToLongBits(this.locationNumber) ^ (Double.doubleToLongBits(this.locationNumber) >>> 32));
+        hash = 89 * hash + this.availableCommands;
         return hash;
     }
 
@@ -59,12 +51,13 @@ public class Location implements Serializable{
         if (Double.doubleToLongBits(this.locationNumber) != Double.doubleToLongBits(other.locationNumber)) {
             return false;
         }
-        if (!Arrays.equals(this.availableCommands, other.availableCommands)) {
+        if (this.availableCommands != other.availableCommands) {
             return false;
         }
         return true;
     }
 
+    
     @Override
     public String toString() {
         return "Location{" + "locationNumber=" + locationNumber + ", availableCommands=" + availableCommands + '}';

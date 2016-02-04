@@ -16,7 +16,7 @@ import java.util.Objects;
 public class TrapScene implements Serializable {
     
     private String description;
-    private int[] interactables;
+    private int interactables;
     private String typeOfTrap;
 
     public TrapScene() {
@@ -31,11 +31,11 @@ public class TrapScene implements Serializable {
         this.description = description;
     }
 
-    public int[] getInteractables() {
+    public int getInteractables() {
         return interactables;
     }
 
-    public void setInteractables(int[] interactables) {
+    public void setInteractables(int interactables) {
         this.interactables = interactables;
     }
 
@@ -50,9 +50,9 @@ public class TrapScene implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.description);
-        hash = 41 * hash + Arrays.hashCode(this.interactables);
-        hash = 41 * hash + Objects.hashCode(this.typeOfTrap);
+        hash = 47 * hash + Objects.hashCode(this.description);
+        hash = 47 * hash + this.interactables;
+        hash = 47 * hash + Objects.hashCode(this.typeOfTrap);
         return hash;
     }
 
@@ -68,18 +68,19 @@ public class TrapScene implements Serializable {
             return false;
         }
         final TrapScene other = (TrapScene) obj;
+        if (this.interactables != other.interactables) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.typeOfTrap, other.typeOfTrap)) {
             return false;
         }
-        if (!Arrays.equals(this.interactables, other.interactables)) {
-            return false;
-        }
         return true;
     }
 
+  
     @Override
     public String toString() {
         return "TrapScene{" + "description=" + description + ", interactables=" + interactables + ", typeOfTrap=" + typeOfTrap + '}';

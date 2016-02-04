@@ -14,7 +14,7 @@ public class Player implements Serializable {
     
     // class instance variables
     private String name;
-    private int[] location;
+    private int location;
     private double fastestTime;
     private double biggestHaul;
 
@@ -30,11 +30,11 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public int[] getLocation() {
+    public int getLocation() {
         return location;
     }
 
-    public void setLocation(int[] location) {
+    public void setLocation(int location) {
         this.location = location;
     }
 
@@ -53,14 +53,14 @@ public class Player implements Serializable {
     public void setBiggestHaul(double biggestHaul) {
         this.biggestHaul = biggestHaul;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.name);
-        hash = 71 * hash + Arrays.hashCode(this.location);
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.fastestTime) ^ (Double.doubleToLongBits(this.fastestTime) >>> 32));
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.biggestHaul) ^ (Double.doubleToLongBits(this.biggestHaul) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.name);
+        hash = 97 * hash + this.location;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.fastestTime) ^ (Double.doubleToLongBits(this.fastestTime) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.biggestHaul) ^ (Double.doubleToLongBits(this.biggestHaul) >>> 32));
         return hash;
     }
 
@@ -76,6 +76,9 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
+        if (this.location != other.location) {
+            return false;
+        }
         if (Double.doubleToLongBits(this.fastestTime) != Double.doubleToLongBits(other.fastestTime)) {
             return false;
         }
@@ -85,11 +88,10 @@ public class Player implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Arrays.equals(this.location, other.location)) {
-            return false;
-        }
         return true;
     }
+    
+
 
     @Override
     public String toString() {

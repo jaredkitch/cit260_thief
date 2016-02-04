@@ -15,18 +15,18 @@ import java.util.Arrays;
 public class Game implements Serializable {
     
     // class instance variables
-    private int[] turnsRemaining;
+    private int turnsRemaining;
 
     public Game() {
     }
     
     
 
-    public int[] getTurnsRemaining() {
+    public int getTurnsRemaining() {
         return turnsRemaining;
     }
 
-    public void setTurnsRemaining(int[] turnsRemaining) {
+    public void setTurnsRemaining(int turnsRemaining) {
         this.turnsRemaining = turnsRemaining;
         
         
@@ -34,10 +34,30 @@ public class Game implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 31 * hash + Arrays.hashCode(this.turnsRemaining);
+        int hash = 7;
+        hash = 43 * hash + this.turnsRemaining;
         return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Game other = (Game) obj;
+        if (this.turnsRemaining != other.turnsRemaining) {
+            return false;
+        }
+        return true;
+    }
+
+
 
     @Override
     public String toString() {
@@ -46,20 +66,8 @@ public class Game implements Serializable {
 
     
     
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Game other = (Game) obj;
-        if (!Arrays.equals(this.turnsRemaining, other.turnsRemaining)) {
-            return false;
-        }
-        return true;
-    }
+
+    
     
     
 }

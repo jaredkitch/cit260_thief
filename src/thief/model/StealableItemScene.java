@@ -17,7 +17,7 @@ import java.util.Objects;
 public class StealableItemScene implements Serializable{
     
     private String description;
-    private int[] interactables;
+    private int interactables;
 
     public StealableItemScene() {
     }
@@ -30,19 +30,19 @@ public class StealableItemScene implements Serializable{
         this.description = description;
     }
 
-    public int[] getInteractables() {
+    public int getInteractables() {
         return interactables;
     }
 
-    public void setInteractables(int[] interactables) {
+    public void setInteractables(int interactables) {
         this.interactables = interactables;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
         hash = 41 * hash + Objects.hashCode(this.description);
-        hash = 41 * hash + Arrays.hashCode(this.interactables);
+        hash = 41 * hash + this.interactables;
         return hash;
     }
 
@@ -58,15 +58,17 @@ public class StealableItemScene implements Serializable{
             return false;
         }
         final StealableItemScene other = (StealableItemScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
+        if (this.interactables != other.interactables) {
             return false;
         }
-        if (!Arrays.equals(this.interactables, other.interactables)) {
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
     }
 
+  
+    
     @Override
     public String toString() {
         return "StealableItemScene{" + "description=" + description + ", interactables=" + interactables + '}';
