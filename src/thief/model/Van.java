@@ -4,32 +4,31 @@
 package thief.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 /**
- *
+ *  @author Jared
  */
 public class Van implements Serializable {
     
     // class instance variables
-    private int[] availableSupplies;
+    private int availableSupplies;
 
     public Van() {
         
     }
 
-    public int[] getAvailableSupplies() {
+    public int getAvailableSupplies() {
         return availableSupplies;
     }
 
-    public void setAvailableSupplies(int[] availableSupplies) {
+    public void setAvailableSupplies(int availableSupplies) {
         this.availableSupplies = availableSupplies;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Arrays.hashCode(this.availableSupplies);
+        hash = 47 * hash + this.availableSupplies;
         return hash;
     }
 
