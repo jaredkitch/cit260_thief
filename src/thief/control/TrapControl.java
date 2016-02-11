@@ -11,6 +11,16 @@ package thief.control;
  */
 public class TrapControl {
     
+    public double calculatePoundsOfC4( double safeHeight, double safeWidth, double safeLength, double c4PerCubicFeet) {
+        if ( safeHeight < 0 || safeWidth < 0 || safeLength < 0 || c4PerCubicFeet <= 0 ) {
+            return -911;
+        }
+
+        double poundsOfC4 = ( safeHeight * safeWidth * safeLength ) / c4PerCubicFeet;
+
+        return poundsOfC4;
+        
+    }
     
     
 }
