@@ -11,6 +11,7 @@ package thief.control;
  */
 public class TrapControl {
     
+    //Group Assignment
     public double calculatePoundsOfC4( double safeHeight, double safeWidth, double safeLength, double c4PerCubicFeet) {
         if ( safeHeight < 0 || safeWidth < 0 || safeLength < 0 || c4PerCubicFeet <= 0 ) {
             return -911;
@@ -22,5 +23,17 @@ public class TrapControl {
         
     }
     
-    
+    //Jon's Assignment
+    public double keypadCombination (int secretNumberOne, int secretNumberTwo, int secretNumberThree) {
+        if (secretNumberOne <= 0 || secretNumberTwo <= 0 || secretNumberThree < 0) {
+            return -911;
+        }
+        
+        if (secretNumberThree >  (secretNumberOne / secretNumberTwo)){
+            return -911;
+        }
+        
+        int keypad = ( secretNumberOne / secretNumberTwo) - secretNumberThree;
+        return keypad;
+    }
 }

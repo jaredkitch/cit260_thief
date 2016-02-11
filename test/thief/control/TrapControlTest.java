@@ -142,6 +142,70 @@ public class TrapControlTest {
         System.out.println("Result is " + result);
         // TODO review the generated test code and remove the default call to fail.
     }
+
+    /**
+     * Test of keypadCombination method, of class TrapControl.
+     */
+    @Test
+    public void testKeypadCombination() {
+        System.out.println("keypadCombination");
+        
+        System.out.println("Test Case 1");
+        int secretNumberOne = 8;
+        int secretNumberTwo = 2;
+        int secretNumberThree = 3;
+        TrapControl instance = new TrapControl();
+        double expResult = 1.0;
+        double result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        
+        System.out.println("Test Case 2");
+        secretNumberOne = 0;
+        secretNumberTwo = 6;
+        secretNumberThree = 1;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("Test Case 3");
+        secretNumberOne = 4;
+        secretNumberTwo = 0;
+        secretNumberThree = 6;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("Test Case 4");
+        secretNumberOne = 6;
+        secretNumberTwo = 3;
+        secretNumberThree = -1;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("Test Case 5");
+        secretNumberOne = 9;
+        secretNumberTwo = 3;
+        secretNumberThree = 9;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("Test Case 6");
+        secretNumberOne = 8;
+        secretNumberTwo = 4;
+        secretNumberThree = 0;
+        instance = new TrapControl();
+        expResult = 2;
+        result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
+        assertEquals(expResult, result, 0.0);
+        
+    }
    
     
 }
