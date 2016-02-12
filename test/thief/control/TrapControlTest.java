@@ -44,7 +44,6 @@ public class TrapControlTest {
         double result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #2");
         safeHeight = -13;
@@ -56,7 +55,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #3");
         safeHeight = 7;
@@ -68,7 +66,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #4");
         safeHeight = 15;
@@ -80,7 +77,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #5");
         safeHeight = 4;
@@ -92,7 +88,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail
         
         System.out.println("Test case #6");
         safeHeight = 11;
@@ -104,7 +99,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #7");
         safeHeight = 0;
@@ -116,7 +110,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #8");
         safeHeight = 15;
@@ -128,7 +121,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test case #9");
         safeHeight = 30;
@@ -140,7 +132,6 @@ public class TrapControlTest {
         result = instance.calculatePoundsOfC4(safeHeight, safeWidth, safeLength, c4PerCubicFeet);
         assertEquals(expResult, result, 0.0);
         System.out.println("Result is " + result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
@@ -158,7 +149,6 @@ public class TrapControlTest {
         double expResult = 1.0;
         double result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
         
         System.out.println("Test Case 2");
         secretNumberOne = 0;
@@ -204,6 +194,148 @@ public class TrapControlTest {
         expResult = 2;
         result = instance.keypadCombination(secretNumberOne, secretNumberTwo, secretNumberThree);
         assertEquals(expResult, result, 0.0);
+        
+    }
+
+    /**
+     * Test of calculateValue method, of class TrapControl.
+     */
+    @Test
+    public void testCalculateValue() {
+        System.out.println("calculateValue");
+        
+        System.out.println("Test Case 1");
+        double diamondsStolen = 4;
+        double vaseValue = 12500;
+        double paintingValue = 200000;
+        double sculptureValue = 50000;
+        double goldValue = 125000;
+        TrapControl instance = new TrapControl();
+        double expResult = 587500;
+        double result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 2");
+        diamondsStolen = -2;
+        vaseValue = 100000;
+        paintingValue = 75000;
+        sculptureValue = 150000;
+        goldValue = 1000000;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 3");
+        diamondsStolen = 1;
+        vaseValue = -3;
+        paintingValue = 100000;
+        sculptureValue = 75000;
+        goldValue = 15000;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 4");
+        diamondsStolen = 4;
+        vaseValue = 1000000;
+        paintingValue = -4;
+        sculptureValue = 100000;
+        goldValue = 75000;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 5");
+        diamondsStolen = 7;
+        vaseValue = 150000;
+        paintingValue = 1000000;
+        sculptureValue = -5;
+        goldValue = 100000;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 6");
+        diamondsStolen = 10;
+        vaseValue = 75000;
+        paintingValue = 150000;
+        sculptureValue = 1000000;
+        goldValue = -6;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 7");
+        diamondsStolen = 0;
+        vaseValue = 10000;
+        paintingValue = 100000;
+        sculptureValue = 1000000;
+        goldValue = 10000000;
+        instance = new TrapControl();
+        expResult = 11110000;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 8");
+        diamondsStolen = 10;
+        vaseValue = 0;
+        paintingValue = 10000;
+        sculptureValue = 100000;
+        goldValue = 1000000;
+        instance = new TrapControl();
+        expResult = 1610000;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 9");
+        diamondsStolen = 100;
+        vaseValue = 1000000;
+        paintingValue = 0;
+        sculptureValue = 10000;
+        goldValue = 100000;
+        instance = new TrapControl();
+        expResult = 6110000;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 10");
+        diamondsStolen = 1000;
+        vaseValue = 100000;
+        paintingValue = 1000000;
+        sculptureValue = 0;
+        goldValue = 10000;
+        instance = new TrapControl();
+        expResult = 51110000;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
+        System.out.println("Test Case 11");
+        diamondsStolen = 10000;
+        vaseValue = 10000;
+        paintingValue = 100000;
+        sculptureValue = 1000000;
+        goldValue = 0;
+        instance = new TrapControl();
+        expResult = 501110000;
+        result = instance.calculateValue(diamondsStolen, vaseValue, paintingValue, sculptureValue, goldValue);
+        assertEquals(expResult, result, 0.0);
+        System.out.println("Result is " + result);
+        
         
     }
    
