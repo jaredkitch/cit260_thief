@@ -36,4 +36,17 @@ public class TrapControl {
         int keypad = ( secretNumberOne / secretNumberTwo) - secretNumberThree;
         return keypad;
     }
+    
+    //Jared's Assignment
+    public double calculateValue(double diamondsStolen, double vaseValue, double paintingValue,
+            double sculptureValue, double goldValue) {
+
+        if (diamondsStolen < 0 || vaseValue < 0 || paintingValue < 0 || sculptureValue < 0 || goldValue < 0 ) {
+            return -911;
+        }
+
+        double totalValue = ( diamondsStolen * 50000 ) + vaseValue + paintingValue + sculptureValue + goldValue;
+        return totalValue;
+        }
+
 }
