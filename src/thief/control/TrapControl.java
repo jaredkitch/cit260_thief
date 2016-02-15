@@ -49,4 +49,17 @@ public class TrapControl {
         return totalValue;
         }
 
+
+    //Tisha's Assignment
+    public double avoidLasers (double laserFieldLength, double laserFieldHeight, double numberOfLasers) {
+       
+        if (laserFieldLength <= 0 || laserFieldHeight <= 0 || numberOfLasers <= 0) 
+            return -911;
+        
+        if (laserFieldLength % 1 != 0 || laserFieldHeight % 1 != 0 || numberOfLasers % 1 != 0) 
+            return -911;
+        
+        double footstepLength = ( laserFieldLength * laserFieldHeight) / numberOfLasers;
+        return footstepLength;
+    }
 }

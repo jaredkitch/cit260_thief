@@ -338,6 +338,103 @@ public class TrapControlTest {
         
         
     }
+
+    /**
+     * Test of avoidLasers method, of class TrapControl.
+     */
+    @Test
+    public void testAvoidLasers() {
+        System.out.println("avoidLasers Test Case 1");
+        double laserFieldLength = 2.0;
+        double laserFieldHeight = 15.0;
+        double numberOfLasers = 5.0;
+        TrapControl instance = new TrapControl();
+        double expResult = 6.0;
+        double result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+    
+         System.out.println("avoidLasers Test Case 2");
+        laserFieldLength = -3.0;
+        laserFieldHeight = 4.0;
+        numberOfLasers = 3.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 3");
+        laserFieldLength = 4.0;
+        laserFieldHeight = -6.0;
+        numberOfLasers = 3.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 4");
+        laserFieldLength = 5.0;
+        laserFieldHeight = 7.0;
+        numberOfLasers = -10.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 5");
+        laserFieldLength = 3.5;
+        laserFieldHeight = 5;
+        numberOfLasers = 6;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 6");
+        laserFieldLength = 7.0;
+        laserFieldHeight = 5.5;
+        numberOfLasers = 2.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 7");
+        laserFieldLength = 0.0;
+        laserFieldHeight = 3.0;
+        numberOfLasers = 7.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 8");
+        laserFieldLength = 5.0;
+        laserFieldHeight = 0.0;
+        numberOfLasers = 6.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 9");
+        laserFieldLength = 8.0;
+        laserFieldHeight = 4.0;
+        numberOfLasers = 0.0;
+        instance = new TrapControl();
+        expResult = -911;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+        
+         System.out.println("avoidLasers Test Case 10");
+        laserFieldLength = 6.0;
+        laserFieldHeight = 5.0;
+        numberOfLasers = 3.0;
+        instance = new TrapControl();
+        expResult = 10.0;
+        result = instance.avoidLasers(laserFieldLength, laserFieldHeight, numberOfLasers);
+        assertEquals(expResult, result, 0.0);
+    }
    
     
 }
+
