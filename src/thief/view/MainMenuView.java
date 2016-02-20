@@ -6,6 +6,8 @@
 package thief.view;
 
 import java.util.Scanner;
+import thief.Thief;
+import thief.control.GameControl;
 
 /**
  *
@@ -14,10 +16,10 @@ import java.util.Scanner;
 public class MainMenuView {
 
     private String menu;
-    private String promptMessage;
+    private String promptMessage = "\n Please Enter Your Selection";
     
     public MainMenuView() {
-        this.menu = "\n"
+        menu = "\n"
                 + "\n"
                 + "\n------------------------------------------------------------"
                 + "\n Main Menu                                                 "
@@ -27,8 +29,9 @@ public class MainMenuView {
                 + "\nH - Get help on how to play the game"
                 + "\nS - Save game"
                 + "\nQ - Quit"
-                + "\n------------------------------------------------------------";        
+                + "\n------------------------------------------------------------";
     }
+
     
     public void displayMainMenuView() {
         
@@ -41,7 +44,6 @@ public class MainMenuView {
             
             // do the requested action and display the next view
             done = this.doAction(menuOption);
-            System.out.println(this.menu);
         } while (!done);
         
     }
@@ -54,6 +56,7 @@ public class MainMenuView {
     while(!valid) { // while a valid name has not been retrieved
         
         //prompt for the player's name
+        System.out.println(this.menu);
         System.out.println(this.promptMessage);
         
         value = keyboard.nextLine(); //get the name from the keyboard
@@ -63,10 +66,6 @@ public class MainMenuView {
         // if the name is invalid (less than one character in length))
         if (value.length() >= 2) {
             System.out.println("Invalid value - the value cannot be more than one");
-            continue; // and repeat again
-        }
-        if (value!= "N" && value!= "G" && value!= "H" && value!= "S" && value!= "Q")  {
-            System.out.println("Invalid value - the value is not valid");
             continue; // and repeat again
         }
         if (value.length() < 1) {
@@ -79,11 +78,53 @@ public class MainMenuView {
     return value; // return the value
         
     }
-    private boolean doAction(String menuOption) {
-        System.out.println("\n*** doAction() function caller ***");
-        return true;
+    private boolean doAction(String choice) {
+        
+        switch (choice) {
+            case "N":
+                this.startNewGame();
+                break;
+            case "G":
+                this.startExistingGame();
+                break;
+            case "H":
+                this.displayHelpMenu();
+                break;
+            case "S":
+                this.saveGame();
+                break;
+            default:
+                System.out.println("\n *** Invalid Selection Try Again ***");
+                break;
+        }
+        return false;
     }
+
+    private void startNewGame() {
+        GameControl.createNewGame(Thief.getPlayer());
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+        
+    }
+
+    private void startExistingGame() {
+         System.out.println("*** startExistingGame function called ***");
+    }
+
+    private void displayHelpMenu() {
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayMenu();
+    }
+
+    private void saveGame() {
+         System.out.println("*** saveGame function called ***");
+    }
+           
+}
+       
+ 
     
-    }
+
     
 
