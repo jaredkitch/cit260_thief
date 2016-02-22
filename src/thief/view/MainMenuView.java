@@ -16,20 +16,21 @@ import thief.control.GameControl;
 public class MainMenuView {
 
     private String menu;
-    private String promptMessage = "\n Please Enter Your Selection";
+    private String promptMessage = 
+          "| Please Enter Your Selection: "
+      + "\n'-------------------------------------------------------------------";
     
     public MainMenuView() {
-        menu = "\n"
-                + "\n"
-                + "\n------------------------------------------------------------"
-                + "\n Main Menu                                                 "
-                + "\n------------------------------------------------------------"
-                + "\nN - Start new game"
-                + "\nG - Get and start saved game"
-                + "\nH - Get help on how to play the game"
-                + "\nS - Save game"
-                + "\nQ - Quit"
-                + "\n------------------------------------------------------------";
+        menu =
+        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+      + "\n| Main Menu"
+      + "\n|-------------------------------------------------------------------"
+      + "\n| N - Start new game"
+      + "\n| G - Get and start saved game"
+      + "\n| H - Get help on how to play the game"
+      + "\n| S - Save game"
+      + "\n| Q - Quit"
+      + "\n|-------------------------------------------------------------------";
     }
 
     
@@ -65,11 +66,17 @@ public class MainMenuView {
         
         // if the name is invalid (less than one character in length))
         if (value.length() >= 2) {
-            System.out.println("Invalid value - the value cannot be more than one");
+            System.out.println(
+               "\n*************************************************************"
+             + "\n***** Invalid value - the value cannot be more than one *****"
+             + "\n*************************************************************");
             continue; // and repeat again
         }
         if (value.length() < 1) {
-            System.out.println("Invalid value - the value cannot be blank");
+            System.out.println(
+                       "\n*****************************************************"
+                     + "\n***** Invalid value - the value cannot be blank *****"
+                     + "\n*****************************************************");
             continue; // and repeat again
         }
         valid = true; // set flag to end repetition
@@ -94,7 +101,10 @@ public class MainMenuView {
                 this.saveGame();
                 break;
             default:
-                System.out.println("\n *** Invalid Selection Try Again ***");
+                System.out.println(
+                                     "\n***************************************"
+                                   + "\n***** Invalid Selection Try Again *****"
+                                   + "\n***************************************");
                 break;
         }
         return false;
