@@ -11,30 +11,22 @@ import java.util.Scanner;
  *
  * @author Jon
  */
-public class GameMenuView {
-
-    private String menu;
+class ItemsToStealView {
+    
+        private String menu;
     private String promptMessage = "\n Please Enter Your Selection";
     
-    public GameMenuView() {
+    public ItemsToStealView() {
         menu = "\n"
-                + "\n                                                            "
+                + "\n"
                 + "\n------------------------------------------------------------"
-                + "\n Game Menu                                                  "
+                + "\n Main Menu                                                 "
                 + "\n------------------------------------------------------------"
-                + "\nM - Move Locations                                          "
-                + "\nS - Search Room                                             "
-                + "\nI - Items to Steal                                          "
-                + "\nC - Items Stolen                                            "
-                + "\nB - Blow open Safe                                          "
-                + "\nL - Pick Lock                                               "
-                + "\nK - Sneak                                                   "
-                + "\nD - Dodge Lasers                                            "
-                + "\nP - Security Keypad Equation                                "
-                + "\nV - View Map                                                "
-                + "\nH - Help                                                    "
-                + "\nA - Save and Quit                                           "
-                + "\nQ - Quit                                                    "
+                + "\nN - Start new game"
+                + "\nG - Get and start saved game"
+                + "\nH - Get help on how to play the game"
+                + "\nS - Save game"
+                + "\nQ - Quit"
                 + "\n------------------------------------------------------------";
     }
 
@@ -87,17 +79,17 @@ public class GameMenuView {
     private boolean doAction(String choice) {
         
         switch (choice) {
-            case "M":
-                this.moveLocation();
+            case "N":
+                
+                break;
+            case "G":
+                
+                break;
+            case "H":
+                
                 break;
             case "S":
-                this.searchRoom();
-                break;
-            case "I":
-                this.itemsToSteal();
-                break;
-            case "C":
-                this.itemsStolen();
+                
                 break;
             default:
                 System.out.println("\n *** Invalid Selection Try Again ***");
@@ -105,22 +97,4 @@ public class GameMenuView {
         }
         return false;
     }
-
-    private void moveLocation() {
-        System.out.println("*** MoveLocation stub function called ***");
-    }
-
-    private void searchRoom() {
-        System.out.println("*** SearchRoom stub function called ***");
-    }
-
-    private void itemsToSteal() {
-        ItemsToStealView toStealMenu = new ItemsToStealView();
-        toStealMenu.displayMenu();
-    }
-
-    private void itemsStolen() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
