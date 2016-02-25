@@ -6,20 +6,19 @@
 package thief.view;
 
 import java.util.Scanner;
-import thief.control.*;
 
 /**
  *
  * @author Jon
  */
-public class GameMenuView {
-
+public class KeypadEquationView {
+    
     private String menu;
     private String promptMessage = 
           "| Please Enter Your Selection: "
       + "\n'-------------------------------------------------------------------";
     
-    public GameMenuView() {
+    public KeypadEquationView() {
         menu =
         "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
       + "\n| Game Menu"
@@ -58,7 +57,7 @@ public class GameMenuView {
     }
 
     private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+    Scanner keyboard = new Scanner(System.in); //keyboard input stream
     String value = "";
     
     boolean valid = false; //set flag to invalid value entered
@@ -67,16 +66,18 @@ public class GameMenuView {
         //prompt for the player's name
         System.out.println(this.menu);
         System.out.println(this.promptMessage);
-        
-        value = keyboard.nextLine(); //get the name from the keyboard
+       
+        double value1 = keyboard.nextDouble(); //get the name from the keyboard
         value = value.trim(); //trim off the excess blanks
-        value = value.toUpperCase(); // converts to upper case letter
+        
+        double value2 = keyboard.nextDouble();
+        
         
         // if the name is invalid (less than one character in length))
-        if (value.length() >= 2) {
+        if (value.length() >= 3) {
             System.out.println(
                "\n*************************************************************"
-             + "\n***** Invalid value - the value cannot be more than one *****"
+             + "\n***** Invalid value - the value cannot be more than Three digits *****"
              + "\n*************************************************************");
             continue; // and repeat again
         }
@@ -89,53 +90,13 @@ public class GameMenuView {
         }
         valid = true; // set flag to end repetition
     }
-    
-    return value; // return the value
+        return value; // return the value
         
-    }
- 
+}
     private boolean doAction(String choice) {
         
         switch (choice) {
-            case "M":
-                this.moveLocation();
-                break;
-            case "S":
-                this.searchRoom();
-                break;
-            case "R":
-                this.listCurrentInventory();
-                break;
-            case "I":
-                this.itemsToSteal();
-                break;
-            case "C":
-                this.itemsStolen();
-                break;
-            case "B":
-                this.blowUpSafe();
-                break;
-            case "L":
-                this.pickLock();
-                break;
-            case "K":
-                this.sneak();
-                break;
-            case "D":
-                this.dodgeLasers();
-                break;  
-            case "P":
-                this.keypadEquation();
-                break;  
-            case "V":
-                this.sneak();
-                break;
-            case "H":
-                this.displayHelpMenu();
-                break;
-            case "A":
-                this.sneak();
-                break;
+          
             default:
                 System.out.println(
                                      "\n***************************************"
@@ -145,52 +106,6 @@ public class GameMenuView {
         }
         return false;
     }
-
-    private void moveLocation() {
-        System.out.println("*** MoveLocation stub function called ***");
-    }
-
-    private void searchRoom() {
-        System.out.println("*** SearchRoom stub function called ***");
-    }
-
-    private void itemsToSteal() {
-        ItemsToStealView toStealMenu = new ItemsToStealView();
-        toStealMenu.displayMenu();
-    }
-
-    private void itemsStolen() {
-        System.out.println("*** ItemsStolen stub function called ***");
-    }
-
-    private void blowUpSafe() {
-        System.out.println("*** BlowUpSafe stub function called ***");
-    }
-
-    private void pickLock() {
-        System.out.println("*** PickLock stub function called ***");
-    }
-
-    private void sneak() {
-        System.out.println("*** Sneak stub function called ***");
-    }
-
-    private void dodgeLasers() {
-        System.out.println("*** DodgeLasers stub function called ***");
-    }
-
-    private void keypadEquation() {
-        System.out.println("*** KeyPadEquation stub function called ***");
-    }
-
-    private void displayHelpMenu() {
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
-    }
-
-    private void listCurrentInventory() {
-        InventoryView inventoryMenu = new InventoryView();
-        inventoryMenu.displayMenu();
-    }
     
 }
+
