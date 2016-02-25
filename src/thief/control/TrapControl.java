@@ -24,7 +24,7 @@ public class TrapControl {
     }
     
     //Jon's Assignment
-    public double keypadCombination (int secretNumberOne, int secretNumberTwo, int secretNumberThree) {
+    public static double keypadCombination (int secretNumberOne, int secretNumberTwo, int secretNumberThree) {
         if (secretNumberOne <= 0 || secretNumberTwo <= 0 || secretNumberThree < 0) {
             return -911;
         }
@@ -38,7 +38,7 @@ public class TrapControl {
     }
     
     //Jared's Assignment
-    public double calculateValue(double diamondsStolen, double vaseValue, double paintingValue,
+    public static double calculateValue(double diamondsStolen, double vaseValue, double paintingValue,
             double sculptureValue, double goldValue) {
 
         if (diamondsStolen < 0 || vaseValue < 0 || paintingValue < 0 || sculptureValue < 0 || goldValue < 0 ) {
@@ -51,7 +51,7 @@ public class TrapControl {
 
 
     //Tisha's Assignment
-    public double avoidLasers (double laserFieldLength, double laserFieldHeight, double numberOfLasers) {
+    public static double avoidLasers (double laserFieldLength, double laserFieldHeight, double numberOfLasers) {
        
         if (laserFieldLength <= 0 || laserFieldHeight <= 0 || numberOfLasers <= 0) 
             return -911;

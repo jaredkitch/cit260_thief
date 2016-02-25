@@ -180,7 +180,8 @@ public class GameMenuView {
     }
 
     private void keypadEquation() {
-        System.out.println("*** KeyPadEquation stub function called ***");
+        KeypadEquationView keypadView = new KeypadEquationView();
+        keypadView.displayMenu();
     }
 
     private void displayHelpMenu() {

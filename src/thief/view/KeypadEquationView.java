@@ -6,6 +6,7 @@
 package thief.view;
 
 import java.util.Scanner;
+import thief.control.TrapControl;
 
 /**
  *
@@ -14,97 +15,92 @@ import java.util.Scanner;
 public class KeypadEquationView {
     
     private String menu;
-    private String promptMessage = 
-          "| Please Enter Your Selection: "
-      + "\n'-------------------------------------------------------------------";
+
     
     public KeypadEquationView() {
-        menu =
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
-      + "\n| Game Menu"
-      + "\n|-------------------------------------------------------------------"
-      + "\n| M - Move Location"
-      + "\n| S - Search Room"
-      + "\n| R - List Current Inventory"
-      + "\n| I - Items to Steal"
-      + "\n| C - Items Stolen"
-      + "\n| B - Blow Open Safe"
-      + "\n| L - Pick Lock"         
-      + "\n| K - Sneak"
-      + "\n| D - Dodge Lasers"          
-      + "\n| P - Security Keypad Equation"          
-      + "\n| V - View Map"
-      + "\n| H - Help"             
-      + "\n| A - Save and Quit"          
-      + "\n| Q - Quit"
-      + "\n|-------------------------------------------------------------------";
+
     }
 
     
     public void displayMenu() {
         
-        boolean done = false; // set flag to not done
+        double done = 0; // set flag to not done
         do {
             // prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return; // exit the game
+            menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+                + "\n| Please Enter Your First Value"
+                + "\n|-------------------------------------------------------------------";
+            
+            int value1 = this.getValue();
+
+            menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+                + "\n| Please Enter Your Second Value"
+                + "\n|-------------------------------------------------------------------";            
+            
+            int value2 = this.getValue();
+            
+            menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+                + "\n| Please Enter Your Third Value"
+                + "\n|-------------------------------------------------------------------"; 
+            
+            int value3 = this.getValue();
             
             // do the requested action and display the next view
-            done = this.doAction(menuOption);
-        } while (!done);
+            done = this.doAction(value1, value2, value3);
+        } while (done == 0);
         
     }
 
-    private String getMenuOption() {
+    private int getValue() {
     Scanner keyboard = new Scanner(System.in); //keyboard input stream
-    String value = "";
+    int value = 0;
     
     boolean valid = false; //set flag to invalid value entered
     while(!valid) { // while a valid name has not been retrieved
         
         //prompt for the player's name
         System.out.println(this.menu);
-        System.out.println(this.promptMessage);
        
-        double value1 = keyboard.nextDouble(); //get the name from the keyboard
-        value = value.trim(); //trim off the excess blanks
-        
-        double value2 = keyboard.nextDouble();
-        
-        
-        // if the name is invalid (less than one character in length))
-        if (value.length() >= 3) {
+        value = keyboard.nextInt(); //get the name from the keyboard
+
+        if (value >= 1000) { 
             System.out.println(
-               "\n*************************************************************"
+               "\n**********************************************************************"
              + "\n***** Invalid value - the value cannot be more than Three digits *****"
-             + "\n*************************************************************");
-            continue; // and repeat again
-        }
-        if (value.length() < 1) {
+             + "\n**********************************************************************");
+            continue;
+           
+        } else if (value <= 0) {
             System.out.println(
-                       "\n*****************************************************"
-                     + "\n***** Invalid value - the value cannot be blank *****"
-                     + "\n*****************************************************");
-            continue; // and repeat again
+                       "\n**************************************************************"
+                     + "\n***** Invalid value - the value cannot be less than Zero *****"
+                     + "\n**************************************************************");
+            continue;
         }
+        
         valid = true; // set flag to end repetition
     }
-        return value; // return the value
+   return value; 
+
         
 }
-    private boolean doAction(String choice) {
+    private double doAction(int number1, int number2, int number3) {
+ 
+        double keypad = TrapControl.keypadCombination(number1, number2, number3);
         
-        switch (choice) {
-          
-            default:
-                System.out.println(
-                                     "\n***************************************"
-                                   + "\n***** Invalid Selection Try Again *****"
-                                   + "\n***************************************");
-                break;
+        if (keypad >= 0){
+        System.out.println( "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+                + "\n| The Keypad number is " + keypad + "                                          "
+                + "\n|-------------------------------------------------------------------"); 
+        return 7;
+        } else if (keypad == -911){
+        System.out.println( 
+                  "\n.------------------------------------------------------------- )xxxxx[;;;;;;;;;>"
+                + "\n| Something happened while you were calulating check your numbers and try again!"
+                + "\n|-------------------------------------------------------------------------------"); 
+        return 0;
         }
-        return false;
+       return 0;
     }
     
 }
