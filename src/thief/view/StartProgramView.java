@@ -21,7 +21,10 @@ public class StartProgramView {
             //promptMessage = "Please enter your name:"
             //display the banner page
         
-            this.promptMessage = "\nPlease enter your name: ";
+            this.promptMessage = 
+        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+      + "\n| Please enter your name: "
+      + "\n'-------------------------------------------------------------------";
             // display the banner when view is created
             this.displayBanner();
     }
@@ -29,7 +32,7 @@ public class StartProgramView {
     public void displayBanner() {
         
         System.out.println(
-"               1fC00Gt                                                                 \n" +
+"                 1fC00Gt                                                                 \n" +
 "              GGGGG0GGGG0                                                                \n" +
 "           i0GGG0GC00GGGG.                                                               \n" +
 "          ,GGGGG0GGG0GGGi .::.                                                           \n" +
@@ -53,12 +56,10 @@ public class StartProgramView {
 "              tGG0           ,CG0L                                                       \n" +
 "              8GL             tC0f                                                       \n" +
 "             fGG,            1GG01                                                       \n"+
-"   .088000000800000000000000000088L                                                     ");
-        
+"   .088000000800000000000000000088L                                                      ");
     }
 
     public void displayStartProgramView() {
-        System.out.println("\n*** displayProgramView function called ***");
         
        boolean done = false; // set flag to not done
        do {
@@ -89,7 +90,10 @@ public class StartProgramView {
         
         // if the name is invalid (less than one character in length))
         if (value.length() < 1) {
-            System.out.println("Invalid value - the value cannot be blank");
+            System.out.println(
+                       "\n*****************************************************"
+                     + "\n***** Invalid value - the value cannot be blank *****"
+                     + "\n*****************************************************");
             continue; // and repeat again
         }
         valid = true; // set flag to end repetition
@@ -102,22 +106,19 @@ public class StartProgramView {
           private void displayNextView(Player player) {
        
         // display a custom welcome message
-        System.out.println("\n==============================================="
-                + "\n Welcome to the game " + player.getName()
-                + "\n We hope you have a lot fun!"
-                + "\n==============================================="
-                );
+        System.out.println(
+        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+      + "\n| Welcome to the game " + player.getName()
+      + "\n| We hope you have a lot fun!"
+      + "\n'-------------------------------------------------------------------"
+      );
         
         // Create MainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
                 
-
-        
         // Display the main menu view
         mainMenuView.displayMainMenuView();
                 
-                
-        
     }
     private boolean doAction(String playersName) {
     // if the length of the playersNAme < 2 then
@@ -125,8 +126,12 @@ public class StartProgramView {
         //return false
         
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
-                    + "the name must be greater than one character in length");
+            System.out.println(
+                          "\n**************************************************"
+                        + "\n***** Invalid players name. The name must be *****"
+                        + "\n***** greater than one character in length   *****"
+                        + "\n**************************************************"
+            );
             return false;
         }
         // create Player with specified name
@@ -138,7 +143,11 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessful
-            System.out.println("\nError creating the player.");
+            System.out.println(
+                                      "\n**************************************"
+                                    + "\n***** Error creating the player. *****"
+                                    + "\n**************************************"
+            );
             return false;
         }
         // display customized welcome message
