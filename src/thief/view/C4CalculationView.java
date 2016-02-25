@@ -12,11 +12,11 @@ import thief.control.TrapControl;
  *
  * @author Jared
  */
-public class BlowUpSafeView {
+public class C4CalculationView {
         
     private String menu;
 
-    public BlowUpSafeView() {
+    public C4CalculationView() {
 
     }
     
@@ -27,25 +27,25 @@ public class BlowUpSafeView {
             // prompt for and get players name
             menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
                  + "\n| What is the safe's height in inches?"
-                 + "\n'-------------------------------------------------------------------";
+                 + "\n|-------------------------------------------------------------------";
             
             int height = this.getValue();
 
             menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
                  + "\n| What is the safe's width in inches?"
-                 + "\n'-------------------------------------------------------------------";            
+                 + "\n|-------------------------------------------------------------------";            
             
             int width = this.getValue();
             
             menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
                  + "\n| What is the safe's length in inches?"
-                 + "\n'-------------------------------------------------------------------"; 
+                 + "\n|-------------------------------------------------------------------"; 
             
             int length = this.getValue();
             
             menu = "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
-                 + "\n| How many pounds of C4 should you use per cubic foot?"
-                 + "\n'-------------------------------------------------------------------"; 
+                 + "\n| How much C4 should you use per cubic foot?"
+                 + "\n|-------------------------------------------------------------------"; 
             
             int c4PerFoot = this.getValue();
             
@@ -92,14 +92,14 @@ public class BlowUpSafeView {
         if (c4Amount >= 0){
             System.out.println(
             "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
-          + "\n| You should use " + c4Amount + " pounds of C4"
-          + "\n'-------------------------------------------------------------------"); 
+          + "\n| You should use " + c4Amount + "pounds of C4"
+          + "\n|-------------------------------------------------------------------"); 
             return 7;
         } else if (c4Amount == -911){
             System.out.println( 
             "\n.------------------------------------------------------------- )xxxxx[;;;;;;;;;>"
           + "\n| Something happened while you were calulating check your numbers and try again!"
-          + "\n'-------------------------------------------------------------------------------"); 
+          + "\n|-------------------------------------------------------------------------------"); 
             return 0;
         }
         return 0;
