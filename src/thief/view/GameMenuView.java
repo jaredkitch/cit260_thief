@@ -32,7 +32,7 @@ public class GameMenuView {
       + "\n| B - Blow Open Safe"
       + "\n| L - Pick Lock"         
       + "\n| K - Sneak"
-      + "\n| D - Dodge Lasers"          
+      + "\n| D - Avoid Lasers"          
       + "\n| P - Security Keypad Equation"          
       + "\n| V - View Map"
       + "\n| H - Help"             
@@ -164,7 +164,8 @@ public class GameMenuView {
     }
 
     private void blowUpSafe() {
-        System.out.println("*** BlowUpSafe stub function called ***");
+        BlowUpSafeView blowUpSafe = new BlowUpSafeView();
+        blowUpSafe.displayMenu();
     }
 
     private void pickLock() {
@@ -176,7 +177,8 @@ public class GameMenuView {
     }
 
     private void dodgeLasers() {
-        System.out.println("*** DodgeLasers stub function called ***");
+        AvoidLasersView avoidLasers = new AvoidLasersView();
+        avoidLasers.displayMenu();
     }
 
     private void keypadEquation() {
