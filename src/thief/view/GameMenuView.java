@@ -14,28 +14,21 @@ import java.util.Scanner;
 public class GameMenuView {
 
     private String menu;
-    private String promptMessage = "\n Please Enter Your Selection";
+    private String promptMessage = 
+          "| Please Enter Your Selection: "
+      + "\n'-------------------------------------------------------------------";
     
     public GameMenuView() {
-        menu = "\n"
-                + "\n                                                            "
-                + "\n------------------------------------------------------------"
-                + "\n Game Menu                                                  "
-                + "\n------------------------------------------------------------"
-                + "\nM - Move Locations                                          "
-                + "\nS - Search Room                                             "
-                + "\nI - Items to Steal                                          "
-                + "\nC - Items Stolen                                            "
-                + "\nB - Blow open Safe                                          "
-                + "\nL - Pick Lock                                               "
-                + "\nK - Sneak                                                   "
-                + "\nD - Dodge Lasers                                            "
-                + "\nP - Security Keypad Equation                                "
-                + "\nV - View Map                                                "
-                + "\nH - Help                                                    "
-                + "\nA - Save and Quit                                           "
-                + "\nQ - Quit                                                    "
-                + "\n------------------------------------------------------------";
+        menu =
+        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+      + "\n| Main Menu"
+      + "\n|-------------------------------------------------------------------"
+      + "\n| N - Start new game"
+      + "\n| G - Get and start saved game"
+      + "\n| H - Get help on how to play the game"
+      + "\n| S - Save game"
+      + "\n| Q - Quit"
+      + "\n|-------------------------------------------------------------------";
     }
 
     
@@ -71,11 +64,17 @@ public class GameMenuView {
         
         // if the name is invalid (less than one character in length))
         if (value.length() >= 2) {
-            System.out.println("Invalid value - the value cannot be more than one");
+            System.out.println(
+               "\n*************************************************************"
+             + "\n***** Invalid value - the value cannot be more than one *****"
+             + "\n*************************************************************");
             continue; // and repeat again
         }
         if (value.length() < 1) {
-            System.out.println("Invalid value - the value cannot be blank");
+            System.out.println(
+                       "\n*****************************************************"
+                     + "\n***** Invalid value - the value cannot be blank *****"
+                     + "\n*****************************************************");
             continue; // and repeat again
         }
         valid = true; // set flag to end repetition
@@ -84,6 +83,7 @@ public class GameMenuView {
     return value; // return the value
         
     }
+ 
     private boolean doAction(String choice) {
         
         switch (choice) {
