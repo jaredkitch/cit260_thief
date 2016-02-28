@@ -128,7 +128,7 @@ public class GameMenuView {
                 this.keypadEquation();
                 break;  
             case "V":
-                this.sneak();
+                this.viewMap();
                 break;
             case "H":
                 this.displayHelpMenu();
@@ -186,6 +186,11 @@ public class GameMenuView {
         keypadView.displayMenu();
     }
 
+    private void viewMap() {
+        MapView viewMap = new MapView();
+        viewMap.displayMap();
+    }
+    
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.displayMenu();
