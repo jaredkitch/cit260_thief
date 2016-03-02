@@ -20,7 +20,7 @@ class InventoryView {
     
     public InventoryView() {
         menu = 
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Items in your inventory"
       + "\n|  - Select an option to see a description of the item"
       + "\n|-------------------------------------------------------------------"
@@ -114,7 +114,7 @@ class InventoryView {
 
     private void c4ExplosivesDescription() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| C4 Explosives"
       + "\n|-------------------------------------------------------------------"
       + "\n| Sometimes the best way to get into something is to make a big boom."
@@ -125,7 +125,7 @@ class InventoryView {
 
     private void measuringTapeDescription() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Measuring Tape"
       + "\n|-------------------------------------------------------------------"
       + "\n| When you're stuck in a bind, perhaps you need to be measured for a"
@@ -137,7 +137,7 @@ class InventoryView {
 
     private void calculatorDescription() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Calculator"
       + "\n|-------------------------------------------------------------------"
       + "\n| The only other thing you need is a sweet pocket protector. This"
@@ -149,7 +149,7 @@ class InventoryView {
 
     private void crowbarDescription() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Crowbar"
       + "\n|-------------------------------------------------------------------"
       + "\n| This is some of the finest titanium money can by. Whatever you are"
@@ -161,7 +161,7 @@ class InventoryView {
     
     private void gunDescription() {        
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Gun"
       + "\n|-------------------------------------------------------------------"
       + "\n| I would hope that this is a last resort. You're a thief not a"

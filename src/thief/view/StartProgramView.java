@@ -22,7 +22,7 @@ public class StartProgramView {
             //display the banner page
         
             this.promptMessage = 
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Please enter your name: "
       + "\n'-------------------------------------------------------------------";
             // display the banner when view is created
@@ -107,7 +107,7 @@ public class StartProgramView {
        
         // display a custom welcome message
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Welcome to the game " + player.getName()
       + "\n| We hope you have a lot fun!"
       + "\n'-------------------------------------------------------------------"

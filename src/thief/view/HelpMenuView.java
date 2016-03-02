@@ -20,7 +20,7 @@ public class HelpMenuView {
     
     public HelpMenuView() {
         menu = 
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| Help Menu"
       + "\n|-------------------------------------------------------------------"
       + "\n| G - What's the Goal of the Game?"
@@ -109,7 +109,7 @@ public class HelpMenuView {
 
     private void gameGoal() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| What's the Goal of the Game?"
       + "\n|-------------------------------------------------------------------"       
       + "\n| You are a master thief with your eye on the local museum as your"
@@ -130,7 +130,7 @@ public class HelpMenuView {
 
     private void howToMove() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| How do you move?"
       + "\n|-------------------------------------------------------------------"
       + "\n| From the Game Menu, select M to Move."
@@ -144,7 +144,7 @@ public class HelpMenuView {
 
     private void howToSave() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| How do I save the game?"
       + "\n|-------------------------------------------------------------------"
       + "\n| To save the current game go to Game Menu. Select S to save your"
@@ -155,7 +155,7 @@ public class HelpMenuView {
 
     private void howToSteal() {
         System.out.println(
-        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+        "\n.-------------------------------------------------------------------"
       + "\n| How do I steal Items?"
       + "\n|-------------------------------------------------------------------"
       + "\n| Stealing items will require you to solve a problem. Depending on"
