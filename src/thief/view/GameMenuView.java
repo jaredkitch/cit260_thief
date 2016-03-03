@@ -136,7 +136,7 @@ public class GameMenuView extends View{
 
     private void viewMap() {
         MapView viewMap = new MapView();
-        viewMap.displayMap();
+        viewMap.display();
     }
     
     private void displayHelpMenu() {
