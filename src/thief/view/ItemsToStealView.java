@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Jon
  */
-class ItemsToStealView {
+class ItemsToStealView  {
     
       private String menu;
     private String promptMessage = 
@@ -20,13 +20,14 @@ class ItemsToStealView {
     
     public ItemsToStealView() {
         menu =
-        "\n.-------------------------------------------------------------------"
-      + "\n| Main Menu"
+        "\n.------------------------------------------------- )xxxxx[;;;;;;;;;>"
+      + "\n| What would you like to steal?"
       + "\n|-------------------------------------------------------------------"
-      + "\n| N - Start new game"
-      + "\n| G - Get and start saved game"
-      + "\n| H - Get help on how to play the game"
-      + "\n| S - Save game"
+      + "\n| D - The Diamond"
+      + "\n| G - The Gold Bars"
+      + "\n| P - The Painting"
+      + "\n| S - The Sculpture"
+      + "\n| V - The Vase"
       + "\n| Q - Quit"
       + "\n|-------------------------------------------------------------------";
     }
@@ -86,17 +87,20 @@ class ItemsToStealView {
     private boolean doAction(String choice) {
         
         switch (choice) {
-            case "N":
-                
+            case "D":
+                this.stealDiamond();
                 break;
             case "G":
-                
+                this.stealGoldBars();
                 break;
-            case "H":
-                
+            case "P":
+                this.stealPainting();
                 break;
             case "S":
-                
+                this.stealSculpture();
+                break;
+            case "V":
+                this.stealVase();
                 break;
             default:
                 System.out.println(
@@ -106,6 +110,26 @@ class ItemsToStealView {
                 break;
         }
         return false;
+    }
+
+    private void stealDiamond() {
+        System.out.println("*** stealDiamond stub function called ***");
+    }
+
+    private void stealGoldBars() {
+        System.out.println("*** stealGoldBars stub function called ***");
+    }
+
+    private void stealPainting() {
+        System.out.println("*** stealPainting stub function called ***");
+    }
+
+    private void stealSculpture() {
+       System.out.println("*** stealSculpture function called ***");
+    }
+
+    private void stealVase() {
+        System.out.println("*** stealVase stub function called ***");
     }
     
     

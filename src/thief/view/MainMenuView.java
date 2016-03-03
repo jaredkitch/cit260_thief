@@ -58,7 +58,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(Thief.getPlayer());
         
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
         
     }
 
@@ -68,7 +68,7 @@ public class MainMenuView extends View {
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayMenu();
+        helpMenu.display();
     }
 
     private void saveGame() {
