@@ -6,15 +6,12 @@
 package thief.view;
 
 /**
- *
  * @author Jared
  */
-public class MapView {
-    
-    private String map;
+public class MapView extends View {
     
     public MapView() {
-        map = 
+        super(
                "First Floor                     Second Floor\n" +
                ".------.------.------.------.   .------.------.------.------.\n" +
                "|   1      2      3  |   4  |   |  13  |  14  |  15  |  16  |\n" +
@@ -24,24 +21,27 @@ public class MapView {
                "|   9     10     11     12  |   |  21     22     23     24  |\n" +
                "'------'------'------'------'   '------'------'------'------'\n" +
                "\n" +
-               "|| = locked entry\n" +
+               "  || = locked entry\n" +
                "\n" +
-               " 1 - Loading dock (to van)     14 - Diamond\n" +
-               " 2 - Exhibit room              15 - Administration (locked)\n" +
-               " 3 - Sculpture                 16 - Recovered Ship (Gold)\n" +
-               " 4 - Security Room             17 - Janitor Closet\n" +
-               " 5 - Bathrooms (air duct)      18 - Laser Protected Hallway\n" +
-               " 6 - Hallway                   19 - Exhibit Room\n" +
-               " 7 - Hallway                   20 - Balcony (stairs)\n" +
-               " 8 - Main Entry (stairs)       21 - Stairs\n" +
-               " 9 - Stairs                    22 - Hallway\n" +
-               "10 - Exhibit room              23 - Hallway\n" +
-               "11 - Exhibit room              24 - Vase\n" +
-               "12 - Lobby                     25 - Van\n" +
-               "13 - Control room (air duct)";
+               "   1 - Loading dock (to van)     14 - Diamond\n" +
+               "   2 - Exhibit room              15 - Administration (locked)\n" +
+               "   3 - Sculpture                 16 - Recovered Ship (Gold)\n" +
+               "   4 - Security Room             17 - Janitor Closet\n" +
+               "   5 - Bathrooms (air duct)      18 - Laser Protected Hallway\n" +
+               "   6 - Hallway                   19 - Exhibit Room\n" +
+               "   7 - Hallway                   20 - Balcony (stairs)\n" +
+               "   8 - Main Entry (stairs)       21 - Stairs\n" +
+               "   9 - Stairs                    22 - Hallway\n" +
+               "  10 - Exhibit room              23 - Hallway\n" +
+               "  11 - Exhibit room              24 - Vase\n" +
+               "  12 - Lobby                     25 - Van\n" +
+               "  13 - Control room (air duct)\n" +
+               ".-------------------------------------------------------------------\n" +
+               "| Press Q to return to the Main Menu");
     }
-
-    public void displayMap() {
-        System.out.println(this.map);
+    
+    @Override
+    public boolean doAction(String choice) {
+        return true;
     }
 }
