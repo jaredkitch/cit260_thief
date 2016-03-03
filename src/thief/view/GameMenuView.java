@@ -104,7 +104,7 @@ public class GameMenuView extends View{
 
     private void itemsToSteal() {
         ItemsToStealView toStealMenu = new ItemsToStealView();
-        toStealMenu.displayMenu();
+        toStealMenu.display();
     }
 
     private void itemsStolen() {
