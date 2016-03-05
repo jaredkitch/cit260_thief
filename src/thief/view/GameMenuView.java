@@ -95,7 +95,8 @@ public class GameMenuView extends View{
     }
 
     private void moveLocation() {
-        System.out.println("*** MoveLocation stub function called ***");
+        MoveLocationView moveLocationMenu = new MoveLocationView();
+        moveLocationMenu.display();
     }
 
     private void searchRoom() {

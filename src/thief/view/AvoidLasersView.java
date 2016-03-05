@@ -10,7 +10,7 @@ import thief.control.TrapControl;
 
 /**
  *
- * @author Jon
+ * @author Tish
  */
 public class AvoidLasersView {
 
@@ -84,19 +84,19 @@ public class AvoidLasersView {
 
         
 }
-    private double doAction(int number1, int number2, int number3) {
+    private double doAction(double value1, double value2, double value3) {
  
-        double keypad = TrapControl.keypadCombination(number1, number2, number3);
+        double footstepLength = TrapControl.avoidLasers(value1, value2, value3);
         
-        if (keypad >= 0){
+        if (footstepLength >= 0){
         System.out.println( "\n.-------------------------------------------------------------------"
-                + "\n| The Keypad number is " + keypad + "                                          "
+                + "\n| To avoid the lasers your footstep length needs to be " + footstepLength + "                                          "
                 + "\n|-------------------------------------------------------------------"); 
         return 7;
-        } else if (keypad == -911){
+        } else if (footstepLength == -911){
         System.out.println( 
                   "\n.-------------------------------------------------------------------------------"
-                + "\n| Something happened while you were calulating check your numbers and try again!"
+                + "\n| Something happened. Check your entries and try again!"
                 + "\n|-------------------------------------------------------------------------------"); 
         return 0;
         }
