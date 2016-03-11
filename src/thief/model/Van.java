@@ -11,27 +11,22 @@ import java.io.Serializable;
 public class Van implements Serializable {
     
     // class instance variables
-    private int availableSupplies;
 
+    private Supplies supplies;
+
+ 
     public Van() {
-        
+        this.supplies = supplies;
+            
     }
 
-    public int getAvailableSupplies() {
-        return availableSupplies;
+  public Supplies getSupplies() {
+        return supplies;
     }
 
-    public void setAvailableSupplies(int availableSupplies) {
-        this.availableSupplies = availableSupplies;
+    public void setSupplies(Supplies supplies) {
+        this.supplies = supplies;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + this.availableSupplies;
-        return hash;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -47,9 +42,4 @@ public class Van implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Van{" + "availableSupplies=" + availableSupplies + '}';
-    }
-    
 }

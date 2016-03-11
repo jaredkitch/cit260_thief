@@ -42,18 +42,9 @@ public class Thief {
     
     public static void jonTests() {
         
-     Map mapSpotOne = new Map();
-         mapSpotOne.setX_axis(7);
-         mapSpotOne.setY_axis(2);
-        mapSpotOne.setZ_axis(0);
-         mapSpotOne.setAssociatedLocation(21);
-         System.out.println(mapSpotOne.toString());
          
          //Location class test cases
-         Location hallway = new Location();
-         hallway.setAvailableCommands(6);
-         hallway.setLocationNumber(21);
-         System.out.println(hallway.toString());
+
          
          //Stealabile Item Scene Class test cases
          StealableItemScene vaseRoom = new StealableItemScene();
@@ -75,18 +66,8 @@ public class Thief {
      
 }
     public static void jaredTests() {
-        Inventory inventory = new Inventory();
-         inventory.setSuppliesInInventory(5);
-         System.out.println(inventory.toString());
-          
-         Supplies supplies = new Supplies();
-         supplies.setNames("bomb");
-         supplies.setSupplyID(2);
-         System.out.println(supplies.toString());
+
          
-         Van van = new Van();
-         van.setAvailableSupplies(2);
-         System.out.println(van.toString());
 }
     
     public static void tishaTests() {
@@ -94,15 +75,9 @@ public class Thief {
          game.setTurnsRemaining(50);
          System.out.println(game.toString());
           
-         Guard guard = new Guard();
-         guard.setLocation(5);
-         guard.setSleepState("asleep");
-         System.out.println(guard.toString());
+
      
-         StealableItems stealableItems = new StealableItems();
-         stealableItems.setName("Tish");
-         stealableItems.setValue(100000);
-         System.out.println(stealableItems.toString());
+
          
         StolenItems stolenItems = new StolenItems();
          stolenItems.setTotalValue(500000);

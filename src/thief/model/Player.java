@@ -11,13 +11,17 @@ import java.util.Objects;
  *   @author Jon, Jared, Tisha
  */
 public class Player implements Serializable {
+
     
     // class instance variables
     private String name;
     private int location;
     private double fastestTime;
     private double biggestHaul;
-
+    private Inventory inventory;
+    private StolenItems stolenItems;
+    
+    
     public Player() {
         
     }
@@ -54,6 +58,48 @@ public class Player implements Serializable {
         this.biggestHaul = biggestHaul;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public StolenItems getStolenItems() {
+        return stolenItems;
+    }
+
+    public void setStolenItems(StolenItems stolenItems) {
+        this.stolenItems = stolenItems;
+    }
+
+    public static  int[] createInventoryList() {
+         
+        
+        int[] inventory = new int[5];
+        
+        inventory[0] = Supplies.c4Explosives.ordinal();
+        
+        inventory[1] = Supplies.measuringTape.ordinal();
+        
+        inventory[2] = Supplies.calculator.ordinal();
+        
+        inventory[3] = Supplies.crowbar.ordinal();
+        
+        inventory[4] = Supplies.gun.ordinal();
+        
+        return inventory;
+        
+    }
+    
+    public static int[] createStolenItemList() {
+        
+        int[] stolenItems = new int[5];
+        
+        return stolenItems;
+    }
+            
     @Override
     public int hashCode() {
         int hash = 7;

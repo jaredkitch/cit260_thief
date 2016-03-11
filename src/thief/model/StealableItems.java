@@ -13,72 +13,23 @@ import java.util.Objects;
  *
  * @author Tish
  */
-public class StealableItems implements Serializable{
-    
+public enum StealableItems implements Serializable{
+    diamonds(5000),
+    goldBars(50000),
+    painting(10000),
+    sculpture(7500),
+    vase(15000);
+   
     // class instance variables
-    private String name;
-    private int value;
+    private final int value;
 
-    public StealableItems() {
+StealableItems(int value) {
+        this.value = value;
     }
     
-    
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+   
     public int getValue() {
         return value;
     }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + this.value;
-        return hash;
-    }
-
-    
-
-    @Override
-    public String toString() {
-        return "StealableItems{" + "name=" + name + ", value=" + value + '}';
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final StealableItems other = (StealableItems) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (this.value != other.value) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-
-   
-    
-    
-    
-    
     
 }

@@ -7,6 +7,7 @@ package thief.model;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  *
@@ -14,19 +15,26 @@ import java.util.Arrays;
  */
 public class Location implements Serializable{
     
-    private double locationNumber;
+    private int location;
     private int availableCommands;
+    private int row;
+    private int column;
+    private int floor;
+    private StealableItemScene stealableItemscenes;
+    private DummyRoom dummyRoom;
+    private TrapScene trapScene;
 
     public Location() {
     }
 
-    public double getLocationNumber() {
-        return locationNumber;
+    public int getLocation() {
+        return location;
     }
 
-    public void setLocationNumber(double locationNumber) {
-        this.locationNumber = locationNumber;
+    public void setLocation(int location) {
+        this.location = location;
     }
+
 
     public int getAvailableCommands() {
         return availableCommands;
@@ -36,13 +44,59 @@ public class Location implements Serializable{
         this.availableCommands = availableCommands;
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public int getFloor() {
+        return floor;
+    }
+
+    public void setFloor(int floor) {
+        this.floor = floor;
+    }
+
     
-  
+    
+    public StealableItemScene getStealableItemscenes() {
+        return stealableItemscenes;
+    }
+
+    public void setStealableItemScenes(StealableItemScene stealableItemscenes) {
+        this.stealableItemscenes = stealableItemscenes;
+    }
+
+    public DummyRoom getDummyRoom() {
+        return dummyRoom;
+    }
+
+    public void setDummyRoom(DummyRoom dummyRoom) {
+        this.dummyRoom = dummyRoom;
+    }
+
+    public TrapScene getTrapScene() {
+        return trapScene;
+    }
+
+    public void setTrapScene(TrapScene trapScene) {
+        this.trapScene = trapScene;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.locationNumber) ^ (Double.doubleToLongBits(this.locationNumber) >>> 32));
-        hash = 89 * hash + this.availableCommands;
+        int hash = 7;
         return hash;
     }
 
@@ -58,20 +112,45 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (Double.doubleToLongBits(this.locationNumber) != Double.doubleToLongBits(other.locationNumber)) {
+        if (this.location != other.location) {
             return false;
         }
         if (this.availableCommands != other.availableCommands) {
             return false;
         }
+        if (this.row != other.row) {
+            return false;
+        }
+        if (this.column != other.column) {
+            return false;
+        }
+        if (this.floor != other.floor) {
+            return false;
+        }
+        if (!Objects.equals(this.stealableItemscenes, other.stealableItemscenes)) {
+            return false;
+        }
+        if (!Objects.equals(this.dummyRoom, other.dummyRoom)) {
+            return false;
+        }
+        if (!Objects.equals(this.trapScene, other.trapScene)) {
+            return false;
+        }
         return true;
     }
 
-    
+ 
+
+
+
     @Override
     public String toString() {
-        return "Location{" + "locationNumber=" + locationNumber + ", availableCommands=" + availableCommands + '}';
+        return "Location{" + "location=" + location + ", availableCommands=" + availableCommands + ", row=" + row + ", column=" + column + ", floor=" + floor + ", stealableItemscenes=" + stealableItemscenes + ", dummyRoom=" + dummyRoom + ", trapScene=" + trapScene + '}';
     }
+    
+    
+    
+
     
     
     

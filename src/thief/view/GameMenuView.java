@@ -23,6 +23,7 @@ public class GameMenuView extends View{
       + "\n| M - Move Location"
       + "\n| S - Search Room"
       + "\n| R - List Current Inventory"
+      + "\n| N - Add Items to Inventory"
       + "\n| I - Items to Steal"
       + "\n| C - Items Stolen"
       + "\n| B - Blow Open Safe"
@@ -53,6 +54,9 @@ public class GameMenuView extends View{
                 break;
             case "R":
                 this.listCurrentInventory();
+                break;
+            case "N":
+                this.addItemToInventory();
                 break;
             case "I":
                 this.itemsToSteal();
@@ -148,6 +152,11 @@ public class GameMenuView extends View{
     private void listCurrentInventory() {
         InventoryView inventoryMenu = new InventoryView();
         inventoryMenu.display();
+    }
+
+    private void addItemToInventory() {
+        ItemToInventory inventory = new ItemToInventory();
+        inventory.display();
     }
     
 }

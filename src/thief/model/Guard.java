@@ -17,9 +17,11 @@ public class Guard implements Serializable{
     
     // class instance variables
     private int location;
-    private String sleepState;
+    private boolean sleepState;
 
     public Guard() {
+        this.location = 0;
+        this.sleepState = true;
     }
     
     
@@ -32,11 +34,11 @@ public class Guard implements Serializable{
         this.location = location;
     }
 
-    public String getSleepState() {
+    public boolean getSleepState() {
         return sleepState;
     }
 
-    public void setSleepState(String sleepState) {
+    public void setSleepState(boolean sleepState) {
         this.sleepState = sleepState;
     }
 

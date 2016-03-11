@@ -13,10 +13,16 @@ import java.util.Arrays;
  * @author Tish
  */
 public class Game implements Serializable {
-    
+
+
     // class instance variables
     private int turnsRemaining;
-
+    private Player player;
+    private Map map;
+    private Van van;
+    private Guard guards;
+    
+    
     public Game() {
     }
     
@@ -30,6 +36,37 @@ public class Game implements Serializable {
         this.turnsRemaining = turnsRemaining;
         
         
+    }
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Van getVan() {
+        return van;
+    }
+
+    public void setVan(Van van) {
+        this.van = van;
+    }
+
+    public Guard getGuards() {
+        return guards;
+    }
+
+    public void setGuards(Guard guards) {
+        this.guards = guards;
     }
 
     @Override

@@ -11,19 +11,21 @@ import java.io.Serializable;
 public class Inventory implements Serializable {
     
     // class instance variables
-    private int suppliesInInventory;
+    private int[] suppliesInInventory;
 
     public Inventory() {
         
     }
 
-    public int getSuppliesInInventory() {
+    public int[] getSuppliesInInventory() {
         return suppliesInInventory;
     }
 
-    public void setSuppliesInInventory(int suppliesInInventory) {
+    public void setSuppliesInInventory(int[] suppliesInInventory) {
         this.suppliesInInventory = suppliesInInventory;
     }
+
+
     
     @Override
     public int hashCode() {

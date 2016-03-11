@@ -17,8 +17,33 @@ public class Map implements Serializable{
     private double y_axis;
     private double z_axis;
     private double associatedLocation;
+    private Location[][][] locations;
     
-    public Map() {
+    public Map(int noOfRows, int noOfColumns, int noOfFloors) {
+        
+        if (noOfRows < 1 || noOfColumns < 1 || noOfFloors < 1) {
+        System.out.println("The Number of rows, columns, and floors must be greater than zero");
+        return;
+    }
+        this.x_axis = noOfRows ;
+        this.y_axis = noOfColumns;
+        this.z_axis = noOfFloors;
+        
+        this.locations = new Location[noOfRows][noOfColumns][noOfFloors];
+        
+        for (int row = 0; row < noOfRows; row++) {
+            for(int column = 0; column < noOfColumns; column++){
+                for(int floor= 0; floor < noOfFloors; floor++) {
+                    
+                    Location location = new Location();
+                    location.setColumn(column);
+                    location.setRow(row);
+                    location.setFloor(floor);
+                    
+                    
+                }                 
+            }
+        }
     }
 
     public double getX_axis() {
@@ -53,6 +78,16 @@ public class Map implements Serializable{
         this.associatedLocation = associatedLocation;
     }
 
+    public Location[][][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][][] locations) {
+        this.locations = locations;
+    }
+
+
+    
     @Override
     public int hashCode() {
         int hash = 5;
