@@ -7,6 +7,8 @@ package thief.view;
 
 import java.util.Scanner;
 import thief.control.*;
+import thief.model.InventoryItem;
+import thief.model.Supplies;
 
 /**
  *
@@ -145,8 +147,19 @@ public class GameMenuView extends View{
     }
     
     private void displayHelpMenu() {
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.display();
+        //Old Code listed here.
+        //HelpMenuView helpMenu = new HelpMenuView();
+        //helpMenu.display();
+        
+        InventoryItem[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description" + "\t");
+ 
+        for (InventoryItem inventoryItem : inventory){
+            System.out.println(inventoryItem.getDescription() + "\t   ");
+        }
+        
     }
 
     private void listCurrentInventory() {
