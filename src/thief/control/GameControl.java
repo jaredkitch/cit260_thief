@@ -9,6 +9,7 @@ import thief.Thief;
 import thief.model.DummyRoom;
 import thief.model.Game;
 import thief.model.Guard;
+import thief.model.InventoryItem;
 import thief.model.Location;
 import thief.model.Map;
 import thief.model.Player;
@@ -34,7 +35,7 @@ public class GameControl {
         player.setName(name);
         player.createInventoryList();
         player.getStolenItems();
-
+        player.getInventory();
         Thief.setPlayer(player); // save the player
         
         
@@ -95,5 +96,10 @@ public class GameControl {
         locations[2][0][1].setTrapScene(trap[SceneType.administration.ordinal()]);
         locations[0][0][1].setTrapScene(trap[SceneType.controlRoom.ordinal()]);
         locations[1][1][1].setTrapScene(trap[SceneType.laserRoom.ordinal()]);
+    }
+
+
+    public static InventoryItem[] getSortedInventoryList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
