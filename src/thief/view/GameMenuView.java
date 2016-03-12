@@ -7,6 +7,7 @@ package thief.view;
 
 import java.util.Scanner;
 import thief.control.*;
+import thief.model.Location;
 
 /**
  *
@@ -141,7 +142,6 @@ public class GameMenuView extends View{
 
     private void viewMap() {
         MapView viewMap = new MapView();
-        viewMap.display();
     }
     
     private void displayHelpMenu() {

@@ -5,11 +5,77 @@
  */
 package thief.view;
 
+import thief.model.Location;
+import thief.model.Map;
+
 /**
  * @author Jared
  */
-public class MapView extends View {
+public class MapView {
     
+    public MapView(Map map) {
+        String openingMenu =
+        "\n.-------------------------------------------------------------------"
+      + "\n| The Metropolitan Museum of Central City"
+      + "\n|-------------------------------------------------------------------";
+        System.out.println(openingMenu);
+
+        for (int floor = 0; floor < map.getLocations()[floor].length;) {
+            
+            if (floor == 0) {
+                System.out.print("| First floor\n");
+            } else if (floor == 1) {
+                System.out.print("| Second floor\n");
+            }
+            
+            for (int row = 0; row < map.getLocations()[row].length;) {
+
+                // print row header
+                for (int column = 0; column < map.getLocations()[column].length;) {
+                    System.out.print("+---------------+");
+                }
+                
+                System.out.println(""); // go to next line
+                
+                // print coordinates
+                for (int column = 0; column < map.getLocations()[column].length;) {
+                    System.out.print("|      " + row + "," + column + "      |");
+                }
+                
+                System.out.println(""); // go to next line
+                
+                // print location name
+                for (int column = 0; column < map.getLocations()[column].length;) {
+                    System.out.print("|               |");
+                }
+                
+                System.out.println(""); // go to next line
+
+                // print row footer
+                for (int column = 0; column < map.getLocations()[column].length;) {
+                    System.out.print("+---------------+");
+                }
+                    
+            } // end of row
+        } // end of floor
+            
+        String closingMenu =
+        "\n|-------------------------------------------------------------------"
+      + "\n| || - Locked entry"
+      + "\n'-------------------------------------------------------------------";
+        System.out.println(closingMenu);
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     public MapView() {
         super(
                "First Floor                     Second Floor\n" +
@@ -45,3 +111,4 @@ public class MapView extends View {
         return true;
     }
 }
+*/

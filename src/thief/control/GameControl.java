@@ -68,32 +68,32 @@ public class GameControl {
         
         //Dummy Rooms
         locations[0][0][0].setDummyRoom(dummy[SceneType.van.ordinal()]);
-        locations[1][0][0].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
-        locations[1][2][0].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
-        locations[2][2][0].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
-        locations[2][1][1].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
-        locations[1][1][0].setDummyRoom(dummy[SceneType.hallway.ordinal()]);
-        locations[2][1][0].setDummyRoom(dummy[SceneType.hallway.ordinal()]);
-        locations[2][2][1].setDummyRoom(dummy[SceneType.hallway.ordinal()]);
-        locations[3][1][1].setDummyRoom(dummy[SceneType.balcony.ordinal()]);
-        locations[0][1][1].setDummyRoom(dummy[SceneType.janitorCloset.ordinal()]);
-        locations[0][2][0].setDummyRoom(dummy[SceneType.stairs.ordinal()]);
-        locations[0][2][1].setDummyRoom(dummy[SceneType.stairs.ordinal()]);
-        locations[3][1][0].setDummyRoom(dummy[SceneType.mainEntry.ordinal()]);
-        locations[0][1][0].setDummyRoom(dummy[SceneType.bathrooms.ordinal()]);
-        locations[3][2][0].setDummyRoom(dummy[SceneType.lobby.ordinal()]);
+        locations[0][1][0].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
+        locations[0][1][2].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
+        locations[0][2][2].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
+        locations[1][2][1].setDummyRoom(dummy[SceneType.exhibitRoom.ordinal()]);
+        locations[0][1][1].setDummyRoom(dummy[SceneType.hallway.ordinal()]);
+        locations[0][2][1].setDummyRoom(dummy[SceneType.hallway.ordinal()]);
+        locations[1][2][2].setDummyRoom(dummy[SceneType.hallway.ordinal()]);
+        locations[1][3][1].setDummyRoom(dummy[SceneType.balcony.ordinal()]);
+        locations[1][0][1].setDummyRoom(dummy[SceneType.janitorCloset.ordinal()]);
+        locations[0][0][2].setDummyRoom(dummy[SceneType.stairs.ordinal()]);
+        locations[1][0][2].setDummyRoom(dummy[SceneType.stairs.ordinal()]);
+        locations[0][3][1].setDummyRoom(dummy[SceneType.mainEntry.ordinal()]);
+        locations[0][0][1].setDummyRoom(dummy[SceneType.bathrooms.ordinal()]);
+        locations[0][3][2].setDummyRoom(dummy[SceneType.lobby.ordinal()]);
         
         //Stealable Item Rooms
-        locations[1][0][1].setStealableItemScenes(stealable[SceneType.diamondRoom.ordinal()]);
-        locations[2][0][0].setStealableItemScenes(stealable[SceneType.sculptureRoom.ordinal()]);
-        locations[3][0][1].setStealableItemScenes(stealable[SceneType.goldRoom.ordinal()]);        
-        locations[3][2][1].setStealableItemScenes(stealable[SceneType.vaseRoom.ordinal()]);
-        locations[1][2][1].setStealableItemScenes(stealable[SceneType.paintingRoom.ordinal()]);
+        locations[1][1][0].setStealableItemScenes(stealable[SceneType.diamondRoom.ordinal()]);
+        locations[0][2][0].setStealableItemScenes(stealable[SceneType.sculptureRoom.ordinal()]);
+        locations[1][3][0].setStealableItemScenes(stealable[SceneType.goldRoom.ordinal()]);        
+        locations[1][3][2].setStealableItemScenes(stealable[SceneType.vaseRoom.ordinal()]);
+        locations[1][1][2].setStealableItemScenes(stealable[SceneType.paintingRoom.ordinal()]);
         
         //Trap Rooms
-        locations[3][0][0].setTrapScene(trap[SceneType.securityRoom.ordinal()]);
-        locations[2][0][1].setTrapScene(trap[SceneType.administration.ordinal()]);
-        locations[0][0][1].setTrapScene(trap[SceneType.controlRoom.ordinal()]);
+        locations[0][3][0].setTrapScene(trap[SceneType.securityRoom.ordinal()]);
+        locations[1][2][0].setTrapScene(trap[SceneType.administration.ordinal()]);
+        locations[1][0][0].setTrapScene(trap[SceneType.controlRoom.ordinal()]);
         locations[1][1][1].setTrapScene(trap[SceneType.laserRoom.ordinal()]);
     }
 }
