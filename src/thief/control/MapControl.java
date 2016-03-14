@@ -21,7 +21,7 @@ import thief.model.TrapScene;
 class MapControl {
 
     public static Map createMap() {
-        Map map = new Map(4, 3, 2);
+        Map map = new Map(2, 4, 3);
         
         DummyRoom[] dummy = createDummyRoom();
         StealableItemScene[] stealable = createStealableItemScene();

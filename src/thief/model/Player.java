@@ -18,7 +18,7 @@ public class Player implements Serializable {
     private int location;
     private double fastestTime;
     private double biggestHaul;
-    private Inventory inventory;
+    private InventoryItem inventory;
     private StolenItems stolenItems;
     
     
@@ -58,11 +58,11 @@ public class Player implements Serializable {
         this.biggestHaul = biggestHaul;
     }
 
-    public Inventory getInventory() {
+    public InventoryItem getInventory() {
         return inventory;
     }
 
-    public void setInventory(Inventory inventory) {
+    public void setInventory(InventoryItem inventory) {
         this.inventory = inventory;
     }
 
@@ -74,20 +74,29 @@ public class Player implements Serializable {
         this.stolenItems = stolenItems;
     }
 
-    public static  int[] createInventoryList() {
+    public static  InventoryItem[] createInventoryList() {
          
+        InventoryItem[] inventory = new InventoryItem[5];
         
-        int[] inventory = new int[5];
+        InventoryItem c4 = new InventoryItem();
+        c4.setDescription("C4 Explosives");
+        inventory[0] = c4;
         
-        inventory[0] = Supplies.c4Explosives.ordinal();
+        InventoryItem measuringTape = new InventoryItem();
+        measuringTape.setDescription("Measuring Tape");
+        inventory[1] = measuringTape;
         
-        inventory[1] = Supplies.measuringTape.ordinal();
+        InventoryItem calculator = new InventoryItem();
+        calculator.setDescription("Calculator");
+        inventory[2] = calculator;
         
-        inventory[2] = Supplies.calculator.ordinal();
+        InventoryItem crowbar = new InventoryItem();
+        crowbar.setDescription("Crowbar");
+        inventory[3] = crowbar;
         
-        inventory[3] = Supplies.crowbar.ordinal();
-        
-        inventory[4] = Supplies.gun.ordinal();
+        InventoryItem gun = new InventoryItem();
+        gun.setDescription("Gun");
+        inventory[4] = gun;
         
         return inventory;
         

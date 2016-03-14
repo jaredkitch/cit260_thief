@@ -13,61 +13,61 @@ import java.io.Serializable;
  */
 public class Map implements Serializable{
     
-    private double x_axis;
-    private double y_axis;
-    private double z_axis;
+    private double numberOfRows;
+    private double numberOfColumns;
+    private double numberOfFloors;
     private double associatedLocation;
     private Location[][][] locations;
     
-    public Map(int noOfRows, int noOfColumns, int noOfFloors) {
+    public Map(int noOfFloors, int noOfRows, int noOfColumns) {
         
-        if (noOfRows < 1 || noOfColumns < 1 || noOfFloors < 1) {
-        System.out.println("The Number of rows, columns, and floors must be greater than zero");
+        if (noOfFloors < 1 || noOfRows < 1 || noOfColumns < 1) {
+        System.out.println("The Number of floors, rows, and columns must be greater than zero");
         return;
     }
-        this.x_axis = noOfRows ;
-        this.y_axis = noOfColumns;
-        this.z_axis = noOfFloors;
+        this.numberOfFloors = noOfFloors;
+        this.numberOfRows = noOfRows ;
+        this.numberOfColumns = noOfColumns;
         
-        this.locations = new Location[noOfRows][noOfColumns][noOfFloors];
+        this.locations = new Location[noOfFloors][noOfRows][noOfColumns];
         
-        for (int row = 0; row < noOfRows; row++) {
-            for(int column = 0; column < noOfColumns; column++){
-                for(int floor= 0; floor < noOfFloors; floor++) {
+        for (int floor = 0; floor < noOfFloors; floor++) {
+            for(int row = 0; row < noOfRows; row++) {
+                for(int column = 0; column < noOfColumns; column++) {
                     
                     Location location = new Location();
+                    location.setFloor(floor);
                     location.setColumn(column);
                     location.setRow(row);
-                    location.setFloor(floor);
                     
-                    
+                    locations[floor][row][column] = location;
                 }                 
             }
         }
     }
 
-    public double getX_axis() {
-        return x_axis;
+    public double getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setX_axis(double x_axis) {
-        this.x_axis = x_axis;
+    public void setNumberOfFloors(double numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
+    }
+    
+    public double getNumberOfRows() {
+        return numberOfRows;
     }
 
-    public double getY_axis() {
-        return y_axis;
+    public void setNumberOfRows(double numberOfRows) {
+        this.numberOfRows = numberOfRows;
     }
 
-    public void setY_axis(double y_axis) {
-        this.y_axis = y_axis;
+    public double getNumberOfColumns() {
+        return numberOfColumns;
     }
 
-    public double getZ_axis() {
-        return z_axis;
-    }
-
-    public void setZ_axis(double z_axis) {
-        this.z_axis = z_axis;
+    public void setNumberOfColumns(double numberOfColumns) {
+        this.numberOfColumns = numberOfColumns;
     }
     
     public double getAssociatedLocation() {
@@ -91,9 +91,9 @@ public class Map implements Serializable{
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.x_axis) ^ (Double.doubleToLongBits(this.x_axis) >>> 32));
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.y_axis) ^ (Double.doubleToLongBits(this.y_axis) >>> 32));
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.z_axis) ^ (Double.doubleToLongBits(this.z_axis) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.numberOfFloors) ^ (Double.doubleToLongBits(this.numberOfFloors) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.numberOfRows) ^ (Double.doubleToLongBits(this.numberOfRows) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.numberOfColumns) ^ (Double.doubleToLongBits(this.numberOfColumns) >>> 32));
         hash = 97 * hash + (int) (Double.doubleToLongBits(this.associatedLocation) ^ (Double.doubleToLongBits(this.associatedLocation) >>> 32));
         return hash;
     }
@@ -115,7 +115,7 @@ public class Map implements Serializable{
 
     @Override
     public String toString() {
-        return "Map{" + "x_axis=" + x_axis + ", y_axis=" + y_axis + ", z_axis=" + z_axis + ", associatedLocation=" + associatedLocation + '}';
+        return "Map{" + ", numberOfFloors=" + numberOfFloors + "numberOfRows=" + numberOfRows + ", numberOfColumns=" + numberOfColumns + ", associatedLocation=" + associatedLocation + '}';
     }
     
        

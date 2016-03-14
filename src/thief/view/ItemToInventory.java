@@ -6,7 +6,7 @@
 package thief.view;
 
 import java.util.Scanner;
-import thief.model.Inventory;
+import thief.model.InventoryItem;
 import thief.model.Player;
 import thief.model.Supplies;
 
@@ -58,10 +58,10 @@ public void display() {
                  done++;
             }
             if (done == 4){
-
+                
             }
         } while (done < 4);
-
+   
     }
 
     public String getInput() {

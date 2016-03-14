@@ -4,32 +4,32 @@
 package thief.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *  @author Jared
  */
-public class Inventory implements Serializable {
+public class InventoryItem implements Serializable {
     
     // class instance variables
-    private int[] suppliesInInventory;
+    private String description;
 
-    public Inventory() {
+    public InventoryItem() {
         
     }
 
-    public int[] getSuppliesInInventory() {
-        return suppliesInInventory;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSuppliesInInventory(int[] suppliesInInventory) {
-        this.suppliesInInventory = suppliesInInventory;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-
-    
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -44,8 +44,8 @@ public class Inventory implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Inventory other = (Inventory) obj;
-        if (this.suppliesInInventory != other.suppliesInInventory) {
+        final InventoryItem other = (InventoryItem) obj;
+        if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         return true;
@@ -53,7 +53,12 @@ public class Inventory implements Serializable {
 
     @Override
     public String toString() {
-        return "Inventory{" + "suppliesInInventory=" + suppliesInInventory + '}';
+        return "InventoryItem{" + "description=" + description + '}';
     }
+    
+    
+    
 
 }
+
+   

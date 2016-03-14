@@ -7,7 +7,9 @@ package thief.view;
 
 import java.util.Scanner;
 import thief.control.*;
+import thief.model.Game;
 import thief.model.InventoryItem;
+import thief.model.Map;
 import thief.model.Supplies;
 
 /**
@@ -82,7 +84,7 @@ public class GameMenuView extends View{
                 this.keypadEquation();
                 break;  
             case "V":
-                this.viewMap();
+                //this.viewMap();
                 break;
             case "H":
                 this.displayHelpMenu();
@@ -141,9 +143,9 @@ public class GameMenuView extends View{
         keypadView.displayMenu();
     }
 
-    private void viewMap() {
-        MapView viewMap = new MapView();
-        viewMap.display();
+    private void viewMap(Game game) {
+        Map map = game.getMap();
+        MapView viewMap = new MapView(map);
     }
     
     private void displayHelpMenu() {
