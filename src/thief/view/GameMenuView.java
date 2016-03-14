@@ -143,9 +143,8 @@ public class GameMenuView extends View{
         keypadView.displayMenu();
     }
 
-    private void viewMap(Game game) {
-        Map map = game.getMap();
-        MapView viewMap = new MapView(map);
+    private void viewMap() {
+        MapView viewMap = new MapView();
     }
     
     private void displayHelpMenu() {
