@@ -5,7 +5,10 @@
  */
 package thief.view;
 
+import exceptions.TrapControlExceptions;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thief.Thief;
 import thief.control.*;
 import thief.model.Game;
@@ -70,7 +73,13 @@ public class GameMenuView extends View{
                 this.itemsStolen();
                 break;
             case "B":
+        {
+            try {
                 this.blowUpSafe();
+            } catch (TrapControlExceptions ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "L":
                 this.pickLock();
@@ -121,7 +130,7 @@ public class GameMenuView extends View{
         System.out.println("*** ItemsStolen stub function called ***");
     }
 
-    private void blowUpSafe() {
+    private void blowUpSafe() throws TrapControlExceptions {
         BlowUpSafeView blowUpSafe = new BlowUpSafeView();
         blowUpSafe.displayMenu();
     }
