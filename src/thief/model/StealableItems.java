@@ -31,5 +31,4 @@ StealableItems(int value) {
     public int getValue() {
         return value;
     }
-    
 }

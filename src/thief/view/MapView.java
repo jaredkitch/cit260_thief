@@ -33,6 +33,7 @@ public class MapView {
                 // print row header
                 for (int column = 0; column < map.getLocations()[column].length;) {
                     System.out.print("+---------------+");
+                    column++;
                 }
                 
                 System.out.println(""); // go to next line
@@ -40,6 +41,7 @@ public class MapView {
                 // print coordinates
                 for (int column = 0; column < map.getLocations()[column].length;) {
                     System.out.print("|      " + row + "," + column + "      |");
+                    column++;
                 }
                 
                 System.out.println(""); // go to next line
@@ -47,6 +49,7 @@ public class MapView {
                 // print location name
                 for (int column = 0; column < map.getLocations()[column].length;) {
                     System.out.print("|               |");
+                    column++;
                 }
                 
                 System.out.println(""); // go to next line
@@ -54,9 +57,11 @@ public class MapView {
                 // print row footer
                 for (int column = 0; column < map.getLocations()[column].length;) {
                     System.out.print("+---------------+");
+                    column++;
                 }
-                    
+               row++;     
             } // end of row
+            floor++;
         } // end of floor
             
         String closingMenu =
@@ -64,6 +69,7 @@ public class MapView {
       + "\n| || - Locked entry"
       + "\n'-------------------------------------------------------------------";
         System.out.println(closingMenu);
+        
     }
 }
     

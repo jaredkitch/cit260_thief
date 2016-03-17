@@ -5,6 +5,9 @@
  */
 package thief.control;
 
+import exceptions.TrapControlExceptions;
+import thief.view.BlowUpSafeView;
+
 /**
  *
  * @author Jon
@@ -12,9 +15,9 @@ package thief.control;
 public class TrapControl {
     
     //Group Assignment
-    public static double calculatePoundsOfC4( double safeHeight, double safeWidth, double safeLength, double c4PerCubicFeet) {
+    public static double calculatePoundsOfC4( double safeHeight, double safeWidth, double safeLength, double c4PerCubicFeet) throws TrapControlExceptions {
         if ( safeHeight < 0 || safeWidth < 0 || safeLength < 0 || c4PerCubicFeet <= 0 ) {
-            return -911;
+            throw new TrapControlExceptions("Can not calculate Volume with values less than 0");          
         }
 
         double poundsOfC4 = ( safeHeight * safeWidth * safeLength ) / c4PerCubicFeet;

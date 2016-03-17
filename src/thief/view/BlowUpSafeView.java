@@ -5,6 +5,7 @@
  */
 package thief.view;
 
+import exceptions.TrapControlExceptions;
 import java.util.Scanner;
 import thief.control.TrapControl;
 
@@ -20,7 +21,7 @@ public class BlowUpSafeView {
 
     }
     
-    public void displayMenu() {
+    public void displayMenu() throws TrapControlExceptions {
         
         double done = 0; // set flag to not done
         do {
@@ -85,23 +86,23 @@ public class BlowUpSafeView {
         return value; 
     }
     
-    private double doAction(int number1, int number2, int number3, int number4) {
+    private double doAction(int number1, int number2, int number3, int number4) throws TrapControlExceptions {
  
-        double c4Amount = TrapControl.calculatePoundsOfC4(number1, number2, number3, number4);
+        try {
+            TrapControl.calculatePoundsOfC4(number1, number2, number3, number4);
+        } catch (TrapControlExceptions me){
+            System.out.println(me.getMessage());
+            displayMenu();
+        }
         
-        if (c4Amount >= 0){
+        double c4Amount = TrapControl.calculatePoundsOfC4(number1, number2, number3, number4);
+
+
             System.out.println(
             "\n.-------------------------------------------------------------------"
           + "\n| You should use " + c4Amount + " pounds of C4"
           + "\n'-------------------------------------------------------------------"); 
             return 7;
-        } else if (c4Amount == -911){
-            System.out.println( 
-            "\n.-------------------------------------------------------------------------------"
-          + "\n| Something happened while you were calulating check your numbers and try again!"
-          + "\n'-------------------------------------------------------------------------------"); 
-            return 0;
-        }
-        return 0;
+        
     }
 }

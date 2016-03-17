@@ -152,19 +152,10 @@ public class GameMenuView extends View{
     }
     
     private void displayHelpMenu() {
-        //Old Code listed here.
-        //HelpMenuView helpMenu = new HelpMenuView();
-        //helpMenu.display();
-        
-        InventoryItem[] inventory = GameControl.getSortedInventoryList();
-        
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t");
- 
-        for (InventoryItem inventoryItem : inventory){
-            System.out.println(inventoryItem.getDescription() + "\t   ");
-        }
-        
+
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.display();
+
     }
 
     private void listCurrentInventory() {
