@@ -5,6 +5,7 @@
  */
 package thief.view;
 
+import exceptions.TrapControlExceptions;
 import java.util.Scanner;
 import thief.control.TrapControl;
 
@@ -22,7 +23,7 @@ public class KeypadEquationView {
     }
 
     
-    public void displayMenu() {
+    public void displayMenu() throws TrapControlExceptions {
         
         double done = 0; // set flag to not done
         do {
@@ -84,23 +85,22 @@ public class KeypadEquationView {
 
         
 }
-    private double doAction(int number1, int number2, int number3) {
+    private double doAction(int number1, int number2, int number3) throws TrapControlExceptions {
  
         double keypad = TrapControl.keypadCombination(number1, number2, number3);
         
-        if (keypad >= 0){
+        try {
+            TrapControl.keypadCombination(number1, number2, number3);
+        } catch (TrapControlExceptions me){
+            System.out.println(me.getMessage());
+        }
+        
+        
         System.out.println( "\n.-------------------------------------------------------------------"
                 + "\n| The Keypad number is " + keypad + "                                          "
                 + "\n|-------------------------------------------------------------------"); 
-        return 7;
-        } else if (keypad == -911){
-        System.out.println( 
-                  "\n.-------------------------------------------------------------------------------"
-                + "\n| Something happened while you were calulating check your numbers and try again!"
-                + "\n|-------------------------------------------------------------------------------"); 
-        return 0;
-        }
-       return 0;
+       
+       return 7;
     }
     
 }

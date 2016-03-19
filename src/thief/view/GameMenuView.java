@@ -91,8 +91,14 @@ public class GameMenuView extends View{
                 this.dodgeLasers();
                 break;  
             case "P":
+        {
+            try {
                 this.keypadEquation();
-                break;  
+            } catch (TrapControlExceptions ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                break;    
             case "V":
                 this.viewMap();
                 break;
@@ -148,7 +154,7 @@ public class GameMenuView extends View{
         avoidLasers.displayMenu();
     }
 
-    private void keypadEquation() {
+    private void keypadEquation() throws TrapControlExceptions {
         KeypadEquationView keypadView = new KeypadEquationView();
         keypadView.displayMenu();
     }

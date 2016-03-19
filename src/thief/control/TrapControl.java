@@ -27,13 +27,13 @@ public class TrapControl {
     }
     
     //Jon's Assignment
-    public static double keypadCombination (int secretNumberOne, int secretNumberTwo, int secretNumberThree) {
+    public static double keypadCombination (int secretNumberOne, int secretNumberTwo, int secretNumberThree) throws TrapControlExceptions {
         if (secretNumberOne <= 0 || secretNumberTwo <= 0 || secretNumberThree < 0) {
-            return -911;
+            throw new TrapControlExceptions("Can not calculate the secret Numbers with values less than 0!");
         }
         
         if (secretNumberThree >  (secretNumberOne / secretNumberTwo)){
-            return -911;
+            throw new TrapControlExceptions("Cannot have a Negative result!");
         }
         
         int keypad = ( secretNumberOne / secretNumberTwo) - secretNumberThree;

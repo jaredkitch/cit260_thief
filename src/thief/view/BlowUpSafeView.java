@@ -17,7 +17,7 @@ public class BlowUpSafeView {
         
     private String menu;
 
-    public BlowUpSafeView() {
+    public BlowUpSafeView() throws TrapControlExceptions{
 
     }
     
