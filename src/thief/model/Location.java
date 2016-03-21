@@ -23,6 +23,7 @@ public class Location implements Serializable{
     private StealableItemScene stealableItemscenes;
     private DummyRoom dummyRoom;
     private TrapScene trapScene;
+    private String type;
 
     public Location() {
     }
@@ -94,6 +95,14 @@ public class Location implements Serializable{
         this.trapScene = trapScene;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;

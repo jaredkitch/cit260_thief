@@ -5,8 +5,11 @@
  */
 package thief.view;
 
+import thief.model.DummyRoom;
 import thief.model.Location;
 import thief.model.Map;
+import thief.model.StealableItemScene;
+import thief.model.TrapScene;
 
 /**
  * @author Jared
@@ -19,59 +22,75 @@ public class MapView {
       + "\n| The Metropolitan Museum of Central City"
       + "\n|-------------------------------------------------------------------";
         System.out.println(openingMenu);
-
-        for (int floor = 0; floor < map.getLocations()[floor].length;) {
-            
-            if (floor == 0) {
-                System.out.print("| First floor\n");
-            } else if (floor == 1) {
-                System.out.print("| Second floor\n");
-            }
-            
-            for (int row = 0; row < map.getLocations()[row].length;) {
-
-                // print row header
-                for (int column = 0; column < map.getLocations()[column].length;) {
-                    System.out.print("+---------------+");
-                    column++;
+Location[][][] locations = map.getLocations();
+//Determines floors locations
+        for (int i = 0; i < 2; i++) {
+                //Determines Row Locations
+                if (i == 0) {
+                    System.out.print("| First floor\n");
+                } else if (i == 1) {
+                    System.out.print("\n| Second floor\n");
                 }
-                
-                System.out.println(""); // go to next line
-                
-                // print coordinates
-                for (int column = 0; column < map.getLocations()[column].length;) {
-                    System.out.print("|      " + row + "," + column + "      |");
-                    column++;
+                for (int k = 0; k < 3; k++) {
+                    String line = "|  ";
+                    if (k == 0 && i == 0 ) {
+                        System.out.println("\n.------.------.------.------.");
+                    }
+                    if (k == 1 && i == 0 ) {
+                        System.out.println("\n|------+      +      +--||--|");
+                    }
+                    if (k == 2 && i == 0 ) {
+                        System.out.println("\n|------+      +      +      |");
+                    }
+                    if (k == 0 && i == 1 ) {
+                        System.out.println("\n.------.------.------.------.");
+                    }
+                    if (k == 1 && i == 1 ) {
+                        System.out.println("\n|------+--||--+--||--+      |");
+                    }
+                    if (k == 2 && i == 1 ) {
+                        System.out.println("\n|      +      +      +      |");
+                    }
+                    for(int j = 0; j < 4; j++) {
+                      
+                      if (locations[i][j][k].getType() == "D") {
+                          String dumb = locations[i][j][k].getDummyRoom().getAbbreviation();
+                          line += dumb ;
+                      }
+                      if (locations[i][j][k].getType() == "S") {
+                          
+                      String steal = locations[i][j][k].getStealableItemscenes().getAbbreviation();
+                          line += steal;
+                      }
+                      if (locations[i][j][k].getType() == "T") {
+                      String trap = locations[i][j][k].getTrapScene().getAbbreviation();
+                          line += trap;
+                      }                     
+                                
+ 
+                    }
+                    line += "|"; 
+                 System.out.print(line);     
                 }
-                
-                System.out.println(""); // go to next line
-                
-                // print location name
-                for (int column = 0; column < map.getLocations()[column].length;) {
-                    System.out.print("|               |");
-                    column++;
-                }
-                
-                System.out.println(""); // go to next line
-
-                // print row footer
-                for (int column = 0; column < map.getLocations()[column].length;) {
-                    System.out.print("+---------------+");
-                    column++;
-                }
-               row++;     
-            } // end of row
-            floor++;
-        } // end of floor
-            
-        String closingMenu =
-        "\n|-------------------------------------------------------------------"
-      + "\n| || - Locked entry"
-      + "\n'-------------------------------------------------------------------";
-        System.out.println(closingMenu);
+                System.out.println("\n'------'------'------'------'");
+        }
         
+        System.out.println("\n" +
+               "  || = locked entry\n" +
+               "\n" +
+               "   Van - Loading dock (to van)   DR - Diamond\n" +
+               "   E - Exhibit room              A - Administration (locked)\n" +
+               "   SC - Sculpture                G - Recovered Ship (Gold)\n" +
+               "   SE - Security Room            J - Janitor Closet\n" +
+               "   R - Bathrooms (air duct)      L - Laser Protected Hallway\n" +
+               "   H - Hallway                   B - Balcony (stairs)\n" +
+               "   ME - Main Entry (stairs)      ST - Stairs\n" +
+               "   L - Lobby                     V - Vase\n" +
+               "   CR - Control room (air duct)\n" +
+               ".-------------------------------------------------------------------\n");
     }
 }
+
     
     
     
@@ -80,8 +99,7 @@ public class MapView {
     
     
     
-    
-    /*
+    /* First Revision
     public MapView() {
         super(
                "First Floor                     Second Floor\n" +
@@ -118,3 +136,56 @@ public class MapView {
     }
 }
 */
+
+
+        /* Second revision code
+        for (int floor = 0; floor < 2;) {
+            
+            if (floor == 0) {
+                System.out.print("| First floor\n");
+            } else if (floor == 1) {
+                System.out.print("| Second floor\n");
+            }
+            
+            for (int row = 0; row < 4;) {
+
+                // print row header
+                for (int column = 0; column < map.getLocations()[column].length - 1 ;) {
+                    System.out.print("+---------------+");
+                    column++;
+                }
+                
+                System.out.println(""); // go to next line
+                
+                // print coordinates
+                for (int column = 0; column < map.getLocations()[column].length - 1;) {
+                    System.out.print("|      " + row + "," + column + "      |");
+                    column++;
+                }
+                
+                System.out.println(""); // go to next line
+                
+                // print location name
+                for (int column = 0; column < map.getLocations()[column].length -1 ;) {
+                    System.out.print("|               |");
+                    column++;
+                }
+                
+                System.out.println(""); // go to next line
+
+                // print row footer
+                for (int column = 0; column < map.getLocations()[column].length - 1;) {
+                    System.out.print("+---------------+");
+                    column++;
+                }
+               row++;     
+            } // end of row
+            floor++;
+        } // end of floor
+            
+        String closingMenu =
+        "\n|-------------------------------------------------------------------"
+      + "\n| || - Locked entry"
+      + "\n'-------------------------------------------------------------------";
+        System.out.println(closingMenu);
+        */

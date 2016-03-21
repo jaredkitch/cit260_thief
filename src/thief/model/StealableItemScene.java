@@ -18,7 +18,8 @@ public class StealableItemScene implements Serializable{
     
     private String description;
     private int interactables;
-
+    private String abbreviation;
+    
     public StealableItemScene() {
     }
     
@@ -38,6 +39,14 @@ public class StealableItemScene implements Serializable{
         this.interactables = interactables;
     }
 
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

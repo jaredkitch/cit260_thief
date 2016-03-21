@@ -10,22 +10,33 @@ package thief.control;
  * @author Jon
  */
 public enum SceneType {
-    van,
-    exhibitRoom,
-    sculptureRoom,
-    securityRoom,
-    bathrooms,
-    hallway,
-    mainEntry,
-    stairs,
-    lobby,
-    controlRoom,
-    diamondRoom,
-    administration,
-    goldRoom,
-    janitorCloset,
-    laserRoom,
-    balcony,
-    vaseRoom,
-    paintingRoom;
+    van("Van  "),
+    exhibitRoom("   E  "),
+    sculptureRoom("   SC  |"),
+    securityRoom("  SE  "),
+    restrooms(" R    "),
+    hallway("  H   "),
+    mainEntry("   ME  "),
+    stairs(" ST  "),
+    lobby("    L   "),
+    controlRoom(" CR |"),
+    diamondRoom("  DR  |"),
+    administration("   A  |"),
+    goldRoom("   G  "),
+    janitorCloset(" J  |  "),
+    laserRoom("L   |"),
+    balcony("    B  "),
+    vaseRoom("   V  "),
+    paintingRoom("  P     ");
+    
+private final String abbreviation;
+
+SceneType(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+    
+   
+    public String getAbbreviation() {
+        return abbreviation;
+}
 }

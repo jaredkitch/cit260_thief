@@ -18,10 +18,20 @@ public class TrapScene implements Serializable {
     private String description;
     private int interactables;
     private String typeOfTrap;
-
+    private String abbreviation;
+    
     public TrapScene() {
     }
 
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+
+    
     
     public String getDescription() {
         return description;

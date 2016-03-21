@@ -14,7 +14,8 @@ import java.util.Objects;
 public class DummyRoom implements Serializable{
     
     private String description;
-
+    private String abbreviation;
+    
     public DummyRoom() {
     }
 
@@ -27,6 +28,15 @@ public class DummyRoom implements Serializable{
         this.description = description;
     }
 
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;
