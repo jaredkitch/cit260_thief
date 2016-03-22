@@ -33,7 +33,7 @@ public class GameControl {
         
         Player player = new Player();
         player.setName(name);
-        player.createInventoryList();
+        player.setPlayerinven(player.createInventoryList());
         player.getStolenItems();
         player.getInventory();
         Thief.setPlayer(player); // save the player

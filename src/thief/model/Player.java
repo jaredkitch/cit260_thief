@@ -20,6 +20,7 @@ public class Player implements Serializable {
     private double biggestHaul;
     private InventoryItem inventory;
     private StolenItems stolenItems;
+    private InventoryItem[] playerinven;
     
     
     public Player() {
@@ -98,9 +99,20 @@ public class Player implements Serializable {
         gun.setDescription("Gun");
         inventory[4] = gun;
         
+        
         return inventory;
         
     }
+
+    public InventoryItem[] getPlayerinven() {
+        return playerinven;
+    }
+
+    public void setPlayerinven(InventoryItem[] playerinven) {
+        this.playerinven = playerinven;
+    }
+    
+    
     
     public static int[] createStolenItemList() {
         
