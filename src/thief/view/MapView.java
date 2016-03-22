@@ -27,29 +27,29 @@ Location[][][] locations = map.getLocations();
         for (int i = 0; i < 2; i++) {
                 //Determines Row Locations
                 if (i == 0) {
-                    System.out.print("| First floor\n");
+                    System.out.print("|\n|   First floor");
                 } else if (i == 1) {
-                    System.out.print("\n| Second floor\n");
+                    System.out.print("|\n|   Second floor");
                 }
                 for (int k = 0; k < 3; k++) {
-                    String line = "|  ";
+                    String line = "|  |  ";
                     if (k == 0 && i == 0 ) {
-                        System.out.println("\n.------.------.------.------.");
+                        System.out.println("\n|  .------.------.------.------.");
                     }
                     if (k == 1 && i == 0 ) {
-                        System.out.println("\n|------+      +      +--||--|");
+                        System.out.println("\n|  |------+      +      +--||--|");
                     }
                     if (k == 2 && i == 0 ) {
-                        System.out.println("\n|------+      +      +      |");
+                        System.out.println("\n|  |------+      +      +      |");
                     }
                     if (k == 0 && i == 1 ) {
-                        System.out.println("\n.------.------.------.------.");
+                        System.out.println("\n|  .------.------.------.------.");
                     }
                     if (k == 1 && i == 1 ) {
-                        System.out.println("\n|------+--||--+--||--+      |");
+                        System.out.println("\n|  |------+--||--+--||--+      |");
                     }
                     if (k == 2 && i == 1 ) {
-                        System.out.println("\n|      +      +      +      |");
+                        System.out.println("\n|  |      +      +      +      |");
                     }
                     for(int j = 0; j < 4; j++) {
                       
@@ -72,22 +72,22 @@ Location[][][] locations = map.getLocations();
                     line += "|"; 
                  System.out.print(line);     
                 }
-                System.out.println("\n'------'------'------'------'");
+                System.out.println("\n|  '------'------'------'------'");
         }
         
-        System.out.println("\n" +
-               "  || = locked entry\n" +
-               "\n" +
-               "   Van - Loading dock (to van)   DR - Diamond\n" +
-               "   E - Exhibit room              A - Administration (locked)\n" +
-               "   SC - Sculpture                G - Recovered Ship (Gold)\n" +
-               "   SE - Security Room            J - Janitor Closet\n" +
-               "   R - Bathrooms (air duct)      L - Laser Protected Hallway\n" +
-               "   H - Hallway                   B - Balcony (stairs)\n" +
-               "   ME - Main Entry (stairs)      ST - Stairs\n" +
-               "   L - Lobby                     V - Vase\n" +
-               "   CR - Control room (air duct)\n" +
-               ".-------------------------------------------------------------------\n");
+        System.out.println("|\n" +
+               "|   || = locked entry\n" +
+               "|   \n" +
+               "|   Van - Loading dock (to van)   DR - Diamond\n" +
+               "|   E - Exhibit room              A - Administration (locked)\n" +
+               "|   SC - Sculpture                G - Recovered Ship (Gold)\n" +
+               "|   SE - Security Room            J - Janitor Closet\n" +
+               "|   R - Bathrooms (air duct)      L - Laser Protected Hallway\n" +
+               "|   H - Hallway                   B - Balcony (stairs)\n" +
+               "|   ME - Main Entry (stairs)      ST - Stairs\n" +
+               "|   L - Lobby                     V - Vase\n" +
+               "|   CR - Control room (air duct)\n" +
+               "'-------------------------------------------------------------------\n");
     }
 }
 
