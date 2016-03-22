@@ -5,7 +5,13 @@
  */
 package thief.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import thief.Thief;
 
 /**
  *
@@ -14,6 +20,10 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     protected String menu;
+    
+    protected final BufferedReader keyboard = Thief.getInFile();
+    protected final PrintWriter console = Thief.getOutFile();
+    
     private String promptMessage = 
           "| Please Enter Your Selection: "
       + "\n'-------------------------------------------------------------------";
@@ -43,37 +53,45 @@ public abstract class View implements ViewInterface {
     
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        
         String value = "";
         boolean valid = false; //set flag to invalid value entered
-
+try {
         while(!valid) { // while a valid name has not been retrieved
         
+            
             //prompt for the player's name
-            System.out.println(this.menu);
-            System.out.println(this.promptMessage);
+            this.console.println(this.menu);
+            this.console.println(this.promptMessage);
         
-            value = keyboard.nextLine(); //get the name from the keyboard
+
+            value = this.keyboard.readLine();//get the name from the keyboard
             value = value.trim(); //trim off the excess blanks
-            value = value.toUpperCase(); // converts to upper case letter
-        
-            // if the name is invalid (less than one character in length))
+            value = value.toUpperCase(); // converts to upper case letter  
+            
             if (value.length() >= 2) {
-              System.out.println(
+              ErrorView.display(this.getClass().getName(),
                 "\n*************************************************************"
                + "\n***** Invalid value - the value cannot be more than one *****"
                + "\n*************************************************************");
                 continue; // and repeat again
             }
             if (value.length() < 1) {
-               System.out.println(
+               ErrorView.display(this.getClass().getName(),
                        "\n*****************************************************"
                      + "\n***** Invalid value - the value cannot be blank *****"
                      + "\n*****************************************************");
               continue; // and repeat again
+}
+}
+} catch(Exception e) { 
+            ErrorView.display(this.getClass().getName(), "Error Reading Input: " + e.getMessage());
+            
             }
             valid = true; // set flag to end repetition
+            
+            return value; // return the value
         }
-    return value; // return the value
+    
     }
-}
+
