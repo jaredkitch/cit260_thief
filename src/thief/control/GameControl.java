@@ -5,6 +5,13 @@
  */
 package thief.control;
 
+import exceptions.GameControlExceptions;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import thief.Thief;
 import thief.model.DummyRoom;
 import thief.model.Game;
@@ -125,5 +132,28 @@ public class GameControl {
 
     public static InventoryItem[] getSortedInventoryList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void saveGame(Game game, String filePath) throws GameControlExceptions {
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+        ObjectOutputStream output = new ObjectOutputStream(fops);
+    } catch (IOException e) {
+        throw new GameControlExceptions(e.getMessage());
+    }
+}
+
+    public static void getSavedGame(String filePath)  throws GameControlExceptions {
+        Game game = null;
+        
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();
+        } catch (FileNotFoundException fnfe){
+            throw new GameControlExceptions(fnfe.getMessage());
+        } catch (Exception e) {
+            throw new GameControlExceptions(e.getMessage());
+        }
+        Thief.setCurrentGame(game);
     }
 }

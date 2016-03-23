@@ -63,7 +63,21 @@ public class MainMenuView extends View {
     }
 
     private void startExistingGame() {
-         System.out.println("*** startExistingGame function called ***");
+         
+        System.out.println("\n\nEnter the file path for the file where the game is saved");
+        
+        String filePath = this.getGameInput();
+        
+        try{
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+            
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+        
     }
 
     private void displayHelpMenu() {
@@ -72,10 +86,57 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-         System.out.println("*** saveGame function called ***");
+         
+        System.out.println("\n\nEnter the file path for file where the game is to be saved");
+        String filePath = this.getGameInput();
+        
+        try{
+            GameControl.saveGame(Thief.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+                
     }
-           
+
+    private String getGameInput() {
+                
+        String value = "";
+        boolean valid = false; //set flag to invalid value entered
+try {
+        while(!valid) { // while a valid name has not been retrieved
+        
+            
+            //prompt for the player's na
+        
+
+            value = this.keyboard.readLine();//get the name from the keyboard
+            value = value.trim(); //trim off the excess blanks
+            value = value.toUpperCase(); // converts to upper case letter  
+            
+ // and repeat again
+            
+            if (value.length() < 1) {
+               ErrorView.display(this.getClass().getName(),
+                       "\n*****************************************************"
+                     + "\n***** Invalid value - the value cannot be blank *****"
+                     + "\n*****************************************************");
+              continue; // and repeat again
+}             
+            valid = true; // set flag to end repetition
 }
+} catch(Exception e) { 
+            ErrorView.display(this.getClass().getName(), "Error Reading Input: " + e.getMessage());
+            
+            }
+            
+            
+            return value; // return the value
+        }
+    
+    }
+
+           
+
        
  
     
