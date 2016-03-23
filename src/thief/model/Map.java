@@ -6,6 +6,7 @@
 package thief.model;
 
 import java.io.Serializable;
+import thief.view.ErrorView;
 
 /**
  *
@@ -22,7 +23,7 @@ public class Map implements Serializable{
     public Map(int noOfFloors, int noOfRows, int noOfColumns) {
         
         if (noOfFloors < 1 || noOfRows < 1 || noOfColumns < 1) {
-        System.out.println("The Number of floors, rows, and columns must be greater than zero");
+        ErrorView.display(this.getClass().getName(), "The Number of floors, rows, and columns must be greater than zero");
         return;
     }
         this.numberOfFloors = noOfFloors;

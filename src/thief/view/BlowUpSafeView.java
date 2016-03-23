@@ -104,7 +104,7 @@ public class BlowUpSafeView {
         try {
             TrapControl.calculatePoundsOfC4(number1, number2, number3, number4);
         } catch (TrapControlExceptions me){
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(), "Stop inserting bad stuff");
             displayMenu();
         }
         
