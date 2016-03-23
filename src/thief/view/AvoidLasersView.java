@@ -5,7 +5,13 @@
  */
 package thief.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import thief.Thief;
 import thief.control.TrapControl;
 
 /**
@@ -15,6 +21,8 @@ import thief.control.TrapControl;
 public class AvoidLasersView {
 
     private String menu;
+    protected final BufferedReader keyboard = Thief.getInFile();
+    protected final PrintWriter console = Thief.getOutFile();
 
     
     public AvoidLasersView() {
@@ -52,32 +60,37 @@ public class AvoidLasersView {
     }
 
     private int getValue() {
-    Scanner keyboard = new Scanner(System.in); //keyboard input stream
+
     int value = 0;
     
     boolean valid = false; //set flag to invalid value entered
     while(!valid) { // while a valid name has not been retrieved
         
         //prompt for the player's name
-        System.out.println(this.menu);
+        this.console.println(this.menu);
        
-        value = keyboard.nextInt(); //get the name from the keyboard
+        try {
+            
+           value = Integer.parseInt(this.keyboard.readLine()); //get the dimension from the keyboard
 
         if (value >= 1000) { 
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                "\n**********************************************************************"
              + "\n***** Invalid value - the value cannot be more than Three digits *****"
              + "\n**********************************************************************");
             continue;
            
         } else if (value <= 0) {
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                        "\n**************************************************************"
                      + "\n***** Invalid value - the value cannot be less than Zero *****"
                      + "\n**************************************************************");
             continue;
         }
-        
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
         valid = true; // set flag to end repetition
     }
    return value; 
@@ -89,12 +102,12 @@ public class AvoidLasersView {
         double footstepLength = TrapControl.avoidLasers(value1, value2, value3);
         
         if (footstepLength >= 0){
-        System.out.println( "\n.-------------------------------------------------------------------"
+        ErrorView.display(this.getClass().getName(), "\n.-------------------------------------------------------------------"
                 + "\n| To avoid the lasers your footstep length needs to be " + footstepLength + "                                          "
                 + "\n|-------------------------------------------------------------------"); 
         return 7;
         } else if (footstepLength == -911){
-        System.out.println( 
+        ErrorView.display(this.getClass().getName(),
                   "\n.-------------------------------------------------------------------------------"
                 + "\n| Something happened. Check your entries and try again!"
                 + "\n|-------------------------------------------------------------------------------"); 
