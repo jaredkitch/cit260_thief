@@ -6,7 +6,10 @@
 package thief.view;
 
 import exceptions.TrapControlExceptions;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import thief.Thief;
 import thief.control.TrapControl;
 
 /**
@@ -16,6 +19,9 @@ import thief.control.TrapControl;
 public class BlowUpSafeView {
         
     private String menu;
+    
+    protected final BufferedReader keyboard = Thief.getInFile();
+    protected final PrintWriter console = Thief.getOutFile();
 
     public BlowUpSafeView() throws TrapControlExceptions{
 
@@ -25,7 +31,7 @@ public class BlowUpSafeView {
         
         double done = 0; // set flag to not done
         do {
-            // prompt for and get players name
+            // prompt for safe dimensions
             menu = "\n.-------------------------------------------------------------------"
                  + "\n| What is the safe's height in inches?"
                  + "\n'-------------------------------------------------------------------";
@@ -56,25 +62,27 @@ public class BlowUpSafeView {
     }
 
     private int getValue() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        
         int value = 0;
     
         boolean valid = false; //set flag to invalid value entered
+        
+        try {
         while(!valid) { // while a valid dimension has not been retrieved
         
-            //prompt for the player's name
-            System.out.println(this.menu);
+            //display the prompt
+            this.console.println(this.menu);
        
-            value = keyboard.nextInt(); //get the dimension from the keyboard
+            value = Integer.parseInt(this.keyboard.readLine()); //get the dimension from the keyboard
 
             if (value >= 100) { 
-                System.out.println(
+                ErrorView.display(this.getClass().getName(),
                 "\n**************************************************************"
               + "\n***** Invalid value - the value cannot be more than 100. *****"
               + "\n**************************************************************");
                 continue;
             } else if (value <= 0) {
-                System.out.println(
+                ErrorView.display(this.getClass().getName(),
                 "\n***************************************************************"
               + "\n***** Invalid value - the value must be greater than zero *****"
               + "\n***************************************************************");
@@ -82,6 +90,11 @@ public class BlowUpSafeView {
             }
         
             valid = true; // set flag to end repetition
+        }
+        
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
         return value; 
     }
@@ -98,7 +111,7 @@ public class BlowUpSafeView {
         double c4Amount = TrapControl.calculatePoundsOfC4(number1, number2, number3, number4);
 
 
-            System.out.println(
+            this.console.println(
             "\n.-------------------------------------------------------------------"
           + "\n| You should use " + c4Amount + " pounds of C4"
           + "\n'-------------------------------------------------------------------"); 

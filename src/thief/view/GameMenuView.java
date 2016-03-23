@@ -109,10 +109,10 @@ public class GameMenuView extends View{
                 this.sneak();
                 break;
             default:
-                System.out.println(
-                                     "\n***************************************"
-                                   + "\n***** Invalid Selection Try Again *****"
-                                   + "\n***************************************");
+                ErrorView.display(this.getClass().getName(),
+                      "\n***************************************"
+                    + "\n***** Invalid Selection Try Again *****"
+                    + "\n***************************************");
                 break;
         }
         return false;
@@ -124,7 +124,7 @@ public class GameMenuView extends View{
     }
 
     private void searchRoom() {
-        System.out.println("*** SearchRoom stub function called ***");
+        this.console.println("*** SearchRoom stub function called ***");
     }
 
     private void itemsToSteal() {
@@ -133,7 +133,7 @@ public class GameMenuView extends View{
     }
 
     private void itemsStolen() {
-        System.out.println("*** ItemsStolen stub function called ***");
+        this.console.println("*** ItemsStolen stub function called ***");
     }
 
     private void blowUpSafe() throws TrapControlExceptions {
@@ -142,11 +142,11 @@ public class GameMenuView extends View{
     }
 
     private void pickLock() {
-        System.out.println("*** PickLock stub function called ***");
+        this.console.println("*** PickLock stub function called ***");
     }
 
     private void sneak() {
-        System.out.println("*** Sneak stub function called ***");
+        this.console.println("*** Sneak stub function called ***");
     }
 
     private void dodgeLasers() {

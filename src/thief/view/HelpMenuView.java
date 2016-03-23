@@ -47,17 +47,17 @@ public class HelpMenuView extends View {
                 this.howToSteal();
                 break;
             default:
-                System.out.println(
-                                     "\n***************************************"
-                                   + "\n***** Invalid Selection Try Again *****"
-                                   + "\n***************************************");
+                ErrorView.display(this.getClass().getName(),
+                      "\n***************************************"
+                    + "\n***** Invalid Selection Try Again *****"
+                    + "\n***************************************");
                 break;
         }
         return false;
     }
 
     private void gameGoal() {
-        System.out.println(
+        this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| What's the Goal of the Game?"
       + "\n|-------------------------------------------------------------------"       
@@ -78,7 +78,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToMove() {
-        System.out.println(
+        this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| How do you move?"
       + "\n|-------------------------------------------------------------------"
@@ -92,7 +92,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToSave() {
-        System.out.println(
+        this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| How do I save the game?"
       + "\n|-------------------------------------------------------------------"
@@ -103,7 +103,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToSteal() {
-        System.out.println(
+        this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| How do I steal Items?"
       + "\n|-------------------------------------------------------------------"
