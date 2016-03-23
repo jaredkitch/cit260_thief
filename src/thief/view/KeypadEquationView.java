@@ -6,7 +6,10 @@
 package thief.view;
 
 import exceptions.TrapControlExceptions;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import thief.Thief;
 import thief.control.TrapControl;
 
 /**
@@ -16,7 +19,8 @@ import thief.control.TrapControl;
 public class KeypadEquationView {
     
     private String menu;
-
+    protected final BufferedReader keyboard = Thief.getInFile();
+    protected final PrintWriter console = Thief.getOutFile();
     
     public KeypadEquationView() {
 
@@ -53,35 +57,38 @@ public class KeypadEquationView {
     }
 
     private int getValue() {
-    Scanner keyboard = new Scanner(System.in); //keyboard input stream
+    
     int value = 0;
     
     boolean valid = false; //set flag to invalid value entered
     while(!valid) { // while a valid name has not been retrieved
-        
+try {       
         //prompt for the player's name
-        System.out.println(this.menu);
+        this.console.println(this.menu);
        
-        value = keyboard.nextInt(); //get the name from the keyboard
+        value = Integer.parseInt(this.keyboard.readLine()); 
 
         if (value >= 1000) { 
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                "\n**********************************************************************"
              + "\n***** Invalid value - the value cannot be more than Three digits *****"
              + "\n**********************************************************************");
             continue;
            
         } else if (value <= 0) {
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                        "\n**************************************************************"
                      + "\n***** Invalid value - the value cannot be less than Zero *****"
                      + "\n**************************************************************");
             continue;
         }
+        valid = true; 
+} catch (Exception e) {
+    ErrorView.display(this.getClass().getName(),"Error Reading input: " + e.getMessage());
+}
         
-        valid = true; // set flag to end repetition
     }
-   return value; 
+    return value;
 
         
 }
@@ -92,11 +99,11 @@ public class KeypadEquationView {
         try {
             TrapControl.keypadCombination(number1, number2, number3);
         } catch (TrapControlExceptions me){
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(), me.getMessage());
         }
         
         
-        System.out.println( "\n.-------------------------------------------------------------------"
+        this.console.println( "\n.-------------------------------------------------------------------"
                 + "\n| The Keypad number is " + keypad + "                                          "
                 + "\n|-------------------------------------------------------------------"); 
        

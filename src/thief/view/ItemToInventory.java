@@ -65,7 +65,7 @@ public void display() {
     }
 
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+       
         String value = "";
         boolean valid = false; //set flag to invalid value entered
 
@@ -75,7 +75,7 @@ public void display() {
             System.out.println(this.menu);
             System.out.println(this.promptMessage);
         
-            value = keyboard.nextLine(); //get the name from the keyboard
+            //value = keyboard.nextLine(); //get the name from the keyboard
             value = value.trim(); //trim off the excess blanks
             value = value.toUpperCase(); // converts to upper case letter
         

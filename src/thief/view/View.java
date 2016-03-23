@@ -82,13 +82,14 @@ try {
                      + "\n***** Invalid value - the value cannot be blank *****"
                      + "\n*****************************************************");
               continue; // and repeat again
-}
+}             
+            valid = true; // set flag to end repetition
 }
 } catch(Exception e) { 
             ErrorView.display(this.getClass().getName(), "Error Reading Input: " + e.getMessage());
             
             }
-            valid = true; // set flag to end repetition
+            
             
             return value; // return the value
         }

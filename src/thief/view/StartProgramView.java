@@ -5,7 +5,10 @@
  */
 package thief.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import thief.Thief;
 import thief.control.GameControl;
 import thief.model.Player;
 
@@ -16,6 +19,8 @@ import thief.model.Player;
 public class StartProgramView {
     
     private String promptMessage;
+    protected final BufferedReader keyboard = Thief.getInFile();
+    protected final PrintWriter console = Thief.getOutFile();
     
     public StartProgramView() {
             //promptMessage = "Please enter your name:"
@@ -31,7 +36,7 @@ public class StartProgramView {
 
     public void displayBanner() {
         
-        System.out.println(
+        this.console.println(
 "                 1fC00Gt                                                                 \n" +
 "              GGGGG0GGGG0                                                                \n" +
 "           i0GGG0GC00GGGG.                                                               \n" +
@@ -76,32 +81,34 @@ public class StartProgramView {
 
     private String getPlayersName() {
         
-    Scanner keyboard = new Scanner(System.in); //keyboard input stream
     String value = "";
     
     boolean valid = false; //set flag to invalid value entered
     while(!valid) { // while a valid name has not been retrieved
-        
+ try {       
         //prompt for the player's name
-        System.out.println(this.promptMessage);
+        this.console.println(this.promptMessage);
         
-        value = keyboard.nextLine(); //get the name from the keyboard
+        value = this.keyboard.readLine(); //get the name from the keyboard
         value = value.trim(); //trim off teh excess blanks
         
         // if the name is invalid (less than one character in length))
         if (value.length() < 1) {
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                        "\n*****************************************************"
                      + "\n***** Invalid value - the value cannot be blank *****"
                      + "\n*****************************************************");
             continue; // and repeat again
         }
         valid = true; // set flag to end repetition
-    }
-    
-    return value; // return the value
+    } catch (Exception e){
+        ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
         
     }
+    }
+    return value; // return the value
+        
+}
 
           private void displayNextView(Player player) {
        
@@ -126,7 +133,7 @@ public class StartProgramView {
         //return false
         
         if (playersName.length() < 2) {
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                           "\n**************************************************"
                         + "\n***** Invalid players name. The name must be *****"
                         + "\n***** greater than one character in length   *****"
@@ -143,7 +150,7 @@ public class StartProgramView {
         Player player = GameControl.createPlayer(playersName);
         
         if (player == null) { // if unsuccessful
-            System.out.println(
+            ErrorView.display(this.getClass().getName(),
                                       "\n**************************************"
                                     + "\n***** Error creating the player. *****"
                                     + "\n**************************************"
