@@ -5,7 +5,16 @@
  */
 package thief.view;
 
+import exceptions.GameControlExceptions;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
+import thief.Thief;
+import thief.control.GameControl;
+import thief.model.Game;
+import thief.model.InventoryItem;
+import thief.model.Player;
 
 /**
  *
@@ -23,6 +32,7 @@ public class HelpMenuView extends View {
       + "\n| M - How do you move?"
       + "\n| S - How do I save the game?"
       + "\n| I - How do I steal Items?"
+      + "\n| E - Print Supply Report"
       + "\n| Q - Quit"
       + "\n|-------------------------------------------------------------------");
     }
@@ -45,6 +55,9 @@ public class HelpMenuView extends View {
                 break;
             case "I":
                 this.howToSteal();
+                break;
+            case "E":
+                this.printSupplyReport();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),
@@ -116,4 +129,58 @@ public class HelpMenuView extends View {
         );
     }
 
+    private void printSupplyReport() {
+        Game game = Thief.getCurrentGame();
+        Player player = game.getPlayer();
+        InventoryItem[] inven = player.getPlayerinven();
+        
+        System.out.println("\n\nEnter the file path for file where the game is to be saved");
+        String filePath = this.getFileInput();
+        
+      
+    try (FileOutputStream fops = new FileOutputStream(filePath)) {
+        PrintInventoryReportView report = new PrintInventoryReportView();
+        report.printInventoryReportView(inven, filePath);
+        
+        } catch (Exception ex) {
+            ErrorView.display("HelpMenuView", ex.getMessage());
+        }
+    
+    
+    }
+
+ private String getFileInput() {
+                
+        String value = "";
+        boolean valid = false; //set flag to invalid value entered
+try {
+        while(!valid) { // while a valid name has not been retrieved
+        
+            
+            //prompt for the player's na
+        
+
+            value = this.keyboard.readLine();//get the name from the keyboard
+            value = value.trim(); //trim off the excess blanks
+            value = value.toUpperCase(); // converts to upper case letter  
+            
+ // and repeat again
+            
+            if (value.length() < 1) {
+               ErrorView.display(this.getClass().getName(),
+                       "\n*****************************************************"
+                     + "\n***** Invalid value - the value cannot be blank *****"
+                     + "\n*****************************************************");
+              continue; // and repeat again
+}             
+            valid = true; // set flag to end repetition
+}
+} catch(Exception e) { 
+            ErrorView.display(this.getClass().getName(), "Error Reading Input: " + e.getMessage());
+            
+            }
+            
+            
+            return value; // return the value
+        }
 }

@@ -13,7 +13,8 @@ public class InventoryItem implements Serializable {
     
     // class instance variables
     private String description;
-
+    private int itemNumber;
+    
     public InventoryItem() {
         
     }
@@ -26,6 +27,14 @@ public class InventoryItem implements Serializable {
         this.description = description;
     }
 
+    public int getItemNumber() {
+        return itemNumber;
+    }
+
+    public void setItemNumber(int itemNumber) {
+        this.itemNumber = itemNumber;
+    }
+  
     @Override
     public int hashCode() {
         int hash = 3;

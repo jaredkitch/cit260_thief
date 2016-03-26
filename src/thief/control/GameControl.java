@@ -127,6 +127,11 @@ public class GameControl {
         locations[1][0][0].setType("T");
         locations[1][1][1].setTrapScene(trap[SceneType.laserRoom.ordinal()]);
         locations[1][1][1].setType("T");
+        
+        Game game = Thief.getCurrentGame();
+        Player player = game.getPlayer();
+ 
+        
     }
 
 
@@ -137,6 +142,7 @@ public class GameControl {
     public static void saveGame(Game game, String filePath) throws GameControlExceptions {
         try (FileOutputStream fops = new FileOutputStream(filePath)) {
         ObjectOutputStream output = new ObjectOutputStream(fops);
+        output.writeObject(game);
     } catch (IOException e) {
         throw new GameControlExceptions(e.getMessage());
     }

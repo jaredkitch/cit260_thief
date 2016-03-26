@@ -81,24 +81,28 @@ public class Player implements Serializable {
         
         InventoryItem c4 = new InventoryItem();
         c4.setDescription("C4 Explosives");
+        c4.setItemNumber(4);
         inventory[0] = c4;
         
         InventoryItem measuringTape = new InventoryItem();
         measuringTape.setDescription("Measuring Tape");
+        measuringTape.setItemNumber(19);
         inventory[1] = measuringTape;
         
         InventoryItem calculator = new InventoryItem();
         calculator.setDescription("Calculator");
+        calculator.setItemNumber(1);
         inventory[2] = calculator;
         
         InventoryItem crowbar = new InventoryItem();
         crowbar.setDescription("Crowbar");
+        crowbar.setItemNumber(8);
         inventory[3] = crowbar;
         
         InventoryItem gun = new InventoryItem();
         gun.setDescription("Gun");
+        gun.setItemNumber(10);
         inventory[4] = gun;
-        
         
         return inventory;
         
