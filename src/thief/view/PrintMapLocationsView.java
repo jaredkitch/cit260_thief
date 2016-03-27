@@ -50,7 +50,7 @@ public class PrintMapLocationsView {
                         }
                         if (locations[i][j][k].getType() == "T") {
                             abbreviation = locations[i][j][k].getTrapScene().getAbbreviation().replaceAll("\\|", "").trim();
-                            description = locations[i][j][k].getStealableItemscenes().getShortDescription();
+                            description = locations[i][j][k].getTrapScene().getShortDescription();
                             out.printf("%n%-34s%-11s%-20s", description, abbreviation, "Trap Room");
                         }           
                     } 
