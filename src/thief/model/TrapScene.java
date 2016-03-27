@@ -16,6 +16,7 @@ import java.util.Objects;
 public class TrapScene implements Serializable {
     
     private String description;
+    private String shortDescription;
     private int interactables;
     private String typeOfTrap;
     private String abbreviation;
@@ -39,6 +40,14 @@ public class TrapScene implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public int getInteractables() {

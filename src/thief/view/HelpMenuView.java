@@ -14,6 +14,7 @@ import thief.Thief;
 import thief.control.GameControl;
 import thief.model.Game;
 import thief.model.InventoryItem;
+import thief.model.Map;
 import thief.model.Player;
 
 /**
@@ -33,6 +34,7 @@ public class HelpMenuView extends View {
       + "\n| S - How do I save the game?"
       + "\n| I - How do I steal Items?"
       + "\n| E - Print Supply Report"
+      + "\n| L - Print Map Locations"
       + "\n| Q - Quit"
       + "\n|-------------------------------------------------------------------");
     }
@@ -58,6 +60,9 @@ public class HelpMenuView extends View {
                 break;
             case "E":
                 this.printSupplyReport();
+                break;
+            case "L":
+                this.printMapLocations();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),
@@ -147,6 +152,22 @@ public class HelpMenuView extends View {
         }
     
     
+    }
+    
+    private void printMapLocations() {
+        Game game = Thief.getCurrentGame();
+        Player player = game.getPlayer();
+        Map map = game.getMap();
+        
+        this.console.println("\n\nEnter the file path for file where the game is to be saved");
+        String filePath = this.getFileInput();
+      
+    try (FileOutputStream fops = new FileOutputStream(filePath)) {
+        PrintMapLocationsView mapReport = new PrintMapLocationsView();
+        mapReport.printMapLocationsView(map, filePath);
+        } catch (Exception ex) {
+            ErrorView.display("HelpMenuView", ex.getMessage());
+        }
     }
 
  private String getFileInput() {

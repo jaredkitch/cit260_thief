@@ -14,6 +14,7 @@ import java.util.Objects;
 public class DummyRoom implements Serializable{
     
     private String description;
+    private String shortDescription;
     private String abbreviation;
     
     public DummyRoom() {
@@ -26,6 +27,14 @@ public class DummyRoom implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public String getAbbreviation() {
