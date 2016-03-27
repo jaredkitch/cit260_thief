@@ -139,7 +139,7 @@ public class HelpMenuView extends View {
         Player player = game.getPlayer();
         InventoryItem[] inven = player.getPlayerinven();
         
-        System.out.println("\n\nEnter the file path for file where the game is to be saved");
+        this.console.println("\n\nEnter the file path for file where the game is to be saved");
         String filePath = this.getFileInput();
         
       
@@ -150,8 +150,6 @@ public class HelpMenuView extends View {
         } catch (Exception ex) {
             ErrorView.display("HelpMenuView", ex.getMessage());
         }
-    
-    
     }
     
     private void printMapLocations() {
