@@ -26,11 +26,12 @@ public class MoveLocationView extends View {
                "'------'------'------'------'   '------'------'------'------'\n" +
                "\n" +
                "  || = locked entry\n" +
-               "\n");
+               "\n"
+               +"\n.-------------------------------------------------------------------");
+               
         Player player = Thief.getPlayer();     
-        this.console.println("\n You are Currently located at " + player.getLocation());
         String out = "\n.-------------------------------------------------------------------"
-                   + "\n| Select the direction you want to move from the map above.         "    
+                   + "\n| Select the direction you want to move from the map below.         "    
                    + "\n| Remember your moves are limited so choose wisely.                 " 
                    + "\n|-------------------------------------------------------------------";
         int loc = player.getLocation();
@@ -67,6 +68,9 @@ public class MoveLocationView extends View {
         out += "\n|-------------------------------------------------------------------"
                 + "\n";
         this.console.println(out);
+        
+        this.console.println("\nYou are currently at location " + player.getLocation()
+        + "\n");
     }
 
     @Override
@@ -142,94 +146,95 @@ public class MoveLocationView extends View {
     }
 
     private void moveToTheNorth(int loc) {
+        Player player = Thief.getPlayer();
+        player.setLocation((loc - 4));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to the North."
+      + "\n| You just moved one room to location" + loc 
       + "\n'-------------------------------------------------------------------"
         );
-        Player player = Thief.getPlayer();
-        player.setLocation((loc - 4));
     }
 
     private void moveToTheSouth(int loc) {
+        Player player = Thief.getPlayer();
+        player.setLocation((loc + 4));
         this.console.println(
      "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to the South."
+      + "\n| You just moved one room to location" + loc 
       + "\n'-------------------------------------------------------------------"
         );
-        Player player = Thief.getPlayer();
-        player.setLocation((loc + 4));
     }
 
     private void moveToTheWest(int loc) {
+        Player player = Thief.getPlayer();
+        player.setLocation((loc - 1));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to the West."
+      + "\n| You just moved one room to location" + loc 
       + "\n'-------------------------------------------------------------------"
         );
-        Player player = Thief.getPlayer();
-        player.setLocation((loc - 1));
+
     }
 
     private void moveToTheEast(int loc) {
+        Player player = Thief.getPlayer();
+        player.setLocation((loc + 1));
         this.console.println(
        "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to the East."
+      + "\n| You just moved one room to location" + loc 
       + "\n'-------------------------------------------------------------------"
         );
-        Player player = Thief.getPlayer();
-        player.setLocation((loc + 1));
     }
 
     private void moveToLowerFloor(int loc) {
         if (loc == 12) {
-        this.console.println(
-        "\n.-------------------------------------------------------------------"
-      + "\n| Move Confirmed"
-      + "\n|-------------------------------------------------------------------"
-      + "\n| You Succesffully Crawl through the Air Ducts."
-      + "\n'-------------------------------------------------------------------");
         Player player = Thief.getPlayer();
         player.setLocation(5);
+            this.console.println(
+            "\n.-------------------------------------------------------------------"
+          + "\n| Move Confirmed"
+          + "\n|-------------------------------------------------------------------"
+          + "\n| You Succesffully Crawl through the Air Ducts."
+          + "\n'-------------------------------------------------------------------");
         } else {
+        Player player = Thief.getPlayer();
+        player.setLocation((loc - 12));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved to the other floor."
+      + "\n| You just moved one room to location" + loc 
       + "\n'-------------------------------------------------------------------");
-        Player player = Thief.getPlayer();
-        player.setLocation((loc - 12));
         }
     }
 
     private void movetoUpperFloor(int loc) {
         if (loc == 5){
+        Player player = Thief.getPlayer();
+        player.setLocation(12);
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
       + "\n| You Succesffully Crawl through the Air Ducts."
       + "\n'-------------------------------------------------------------------");
-        Player player = Thief.getPlayer();
-        player.setLocation(12);
         } else {
+        Player player = Thief.getPlayer();
+        player.setLocation((loc + 12));            
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved to the other floor."
+      + "\n| You just moved one room to location" + loc 
       + "\n'-------------------------------------------------------------------");
-        Player player = Thief.getPlayer();
-        player.setLocation((loc + 12));
         }
     }
 
