@@ -138,7 +138,7 @@ public class MoveLocationView extends View {
                                    + "\n***************************************");
                 break;
         }
-        return false;
+        return true;
     }
 
     private void moveToTheNorth(int loc) {
@@ -190,6 +190,16 @@ public class MoveLocationView extends View {
     }
 
     private void moveToLowerFloor(int loc) {
+        if (loc == 12) {
+        this.console.println(
+        "\n.-------------------------------------------------------------------"
+      + "\n| Move Confirmed"
+      + "\n|-------------------------------------------------------------------"
+      + "\n| You Succesffully Crawl through the Air Ducts."
+      + "\n'-------------------------------------------------------------------");
+        Player player = Thief.getPlayer();
+        player.setLocation(5);
+        } else {
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
@@ -198,9 +208,20 @@ public class MoveLocationView extends View {
       + "\n'-------------------------------------------------------------------");
         Player player = Thief.getPlayer();
         player.setLocation((loc - 12));
+        }
     }
 
     private void movetoUpperFloor(int loc) {
+        if (loc == 5){
+        this.console.println(
+        "\n.-------------------------------------------------------------------"
+      + "\n| Move Confirmed"
+      + "\n|-------------------------------------------------------------------"
+      + "\n| You Succesffully Crawl through the Air Ducts."
+      + "\n'-------------------------------------------------------------------");
+        Player player = Thief.getPlayer();
+        player.setLocation(12);
+        } else {
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
@@ -208,7 +229,8 @@ public class MoveLocationView extends View {
       + "\n| You just moved to the other floor."
       + "\n'-------------------------------------------------------------------");
         Player player = Thief.getPlayer();
-        player.setBiggestHaul((loc + 12));
+        player.setLocation((loc + 12));
+        }
     }
 
 }
