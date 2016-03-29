@@ -53,7 +53,7 @@ public class MoveLocationView extends View {
             out += "\n| E - Move one room to the East";
         }
         //Generate West Available Rooms
-        if (loc == 2 || loc == 5 || loc == 6 || loc == 7 || loc == 9 || loc == 10 || loc == 21 || loc == 22
+        if ( loc ==1 || loc == 2 || loc == 5 || loc == 6 || loc == 7 || loc == 9 || loc == 10 || loc == 21 || loc == 22
                 || loc == 11 || loc == 23 || loc == 19|| loc == 20){
             out += "\n| W - Move one room to the West";
         }
