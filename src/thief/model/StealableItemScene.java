@@ -17,6 +17,7 @@ import java.util.Objects;
 public class StealableItemScene implements Serializable{
     
     private String description;
+    private String shortDescription;
     private int interactables;
     private String abbreviation;
     
@@ -31,6 +32,14 @@ public class StealableItemScene implements Serializable{
         this.description = description;
     }
 
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }    
+    
     public int getInteractables() {
         return interactables;
     }

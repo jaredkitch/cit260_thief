@@ -39,11 +39,12 @@ class MapControl {
         
         DummyRoom van = new DummyRoom();
         van.setDescription(
-                  "\n                    ***Van***"
+                  "\n           ***Loading Dock with Van***"
                 + "\n This is your mobile headquarters. It conatins all of your"
                 + "\n supplies but remember you can only take five with"
                 + "\n you each trip. Assuming you make it out without"
                 + "\n getting caught this is also your getaway vehicle.");
+        van.setShortDescription("Loading Dock with Van");
         van.setAbbreviation(SceneType.van.getAbbreviation());
         scenes[SceneType.van.ordinal()] = van;
         
@@ -54,6 +55,7 @@ class MapControl {
                 + "\n while that's all well and good there's nothing here"
                 + "\n that peaks your interest. You are in this for the big"
                 + "\n money items. Move on.");
+        exhibit.setShortDescription("Exhibit Room");
         exhibit.setAbbreviation(SceneType.exhibitRoom.getAbbreviation());
         scenes[SceneType.exhibitRoom.ordinal()] = exhibit;
         
@@ -66,6 +68,7 @@ class MapControl {
                 + "\n if that is the case is to calculate how to manuever"
                 + "\n through them without tripping one."
                 + "\n Move quickly the clock is ticking!");
+        hallway.setShortDescription("Hallway");
         hallway.setAbbreviation(SceneType.hallway.getAbbreviation());
         scenes[SceneType.hallway.ordinal()] = hallway;
     
@@ -75,6 +78,7 @@ class MapControl {
                 + "\n You made it to the balcony. Now take a quick"
                 + "\n sec to take in the view and catch your breath."
                 + "\n Now get back to your mission!");
+        balcony.setShortDescription("The Balcony");
         balcony.setAbbreviation(SceneType.balcony.getAbbreviation());
         scenes[SceneType.balcony.ordinal()] = balcony;
         
@@ -84,6 +88,7 @@ class MapControl {
                 + "\n Welcome to the janitors closet. Not the fanciest room"
                 + "\n in the museum but possibly worth searching for traps"
                 + "\n or items the janitor may be saving for themselves");
+        closet.setShortDescription("Janitors Closet");
         closet.setAbbreviation(SceneType.janitorCloset.getAbbreviation());
         scenes[SceneType.janitorCloset.ordinal()] = closet;
         
@@ -93,6 +98,7 @@ class MapControl {
                 + "\n Just a bunch of stairs that lead to four of your five"
                 + "\n marks. Yes. Four or the five big money items are on the"
                 + "\n second level. Better start climbing.");
+        stairs.setShortDescription("Stairs");
         stairs.setAbbreviation(SceneType.stairs.getAbbreviation());
         scenes[SceneType.stairs.ordinal()] = stairs;
         
@@ -105,6 +111,7 @@ class MapControl {
                 + "\n job a little easier from here on out by turning off"
                 + "\n the cameras or shutting down the laser field, but"
                 + "\n remember, at least one guard is always stationed there.");
+        mainEntry.setShortDescription("Main Entry");
         mainEntry.setAbbreviation(SceneType.mainEntry.getAbbreviation());
         scenes[SceneType.mainEntry.ordinal()] = mainEntry;
         
@@ -115,6 +122,7 @@ class MapControl {
                 + "\n one and only room where you can get into the airducts"
                 + "\n from which lead to the control room. Careful, the guards"
                 + "\n like to hang out there.");
+        bathrooms.setShortDescription("Bathrooms");
         bathrooms.setAbbreviation(SceneType.restrooms.getAbbreviation());
         scenes[SceneType.restrooms.ordinal()] = bathrooms;        
         
@@ -125,6 +133,7 @@ class MapControl {
                 + "\n to make. Are you going to stay on this floor and continue"
                 + "\n looking for marks or make your way to the main entry and"
                 + "\n head upstairs?");
+        lobby.setShortDescription("Lobby");
         lobby.setAbbreviation(SceneType.lobby.getAbbreviation());
         scenes[SceneType.lobby.ordinal()] = lobby;
         
@@ -144,6 +153,7 @@ class MapControl {
                 + "\n night, however, they are also the museums most expensive"
                 + "\n and most guarded item. Watch what you are doing as you"
                 + "\n search the room.");
+        diamonds.setShortDescription("The Diamond Room");
         diamonds.setAbbreviation(SceneType.diamondRoom.getAbbreviation());
         diamonds.setInteractables(1);
         scenes[SceneType.diamondRoom.ordinal()] = diamonds;
@@ -155,6 +165,7 @@ class MapControl {
                 + "\n a ship wreck in the North Pacific. While they are worth a"
                 + "\n fortune they will not be easy to steal. Search carefully"
                 + "\n and watch out for traps.");
+        gold.setShortDescription("The Gold Room");
         gold.setAbbreviation(SceneType.goldRoom.getAbbreviation());
         gold.setInteractables(1);
         scenes[SceneType.goldRoom.ordinal()] = gold;
@@ -165,6 +176,7 @@ class MapControl {
                 + "\n This room houses the most expensive sculpture in the"
                 + "\n museum. However, it happens to be encased in a glass"
                 + "\n case. I hope you brought that glass cutter with you.");
+        sculpture.setShortDescription("The Sculpture Room");
         sculpture.setAbbreviation(SceneType.sculptureRoom.getAbbreviation());
         sculpture.setInteractables(1);
         scenes[SceneType.sculptureRoom.ordinal()] = sculpture;
@@ -175,6 +187,7 @@ class MapControl {
                 + "\n The paining is on your list of marks for the evening."
                 + "\n However, would they leave it hanging on the wall without "
                 + "\n any kind of specialized securtiy? Tread Carefully!");
+        painting.setShortDescription("The Painting Room");
         painting.setAbbreviation(SceneType.paintingRoom.getAbbreviation());
         painting.setInteractables(1);
         scenes[SceneType.paintingRoom.ordinal()] = painting;
@@ -187,6 +200,7 @@ class MapControl {
                 + "\n for the guards making their rounds. As this room is just"
                 + "\n off the main entry staircase it's likely"
                 + "\n they are close by.");
+        vase.setShortDescription("The Vase Room");
         vase.setAbbreviation(SceneType.vaseRoom.getAbbreviation());
         vase.setInteractables(1);
         scenes[SceneType.vaseRoom.ordinal()] = vase;
@@ -209,6 +223,7 @@ class MapControl {
                 + "\n to it with three numbers on it. You must figure out which"
                 + "\n number goes in which spot or risk setting off the alarm."
                 + "\n Good luck!");
+        security.setShortDescription("Security Room Keypad");
         security.setAbbreviation(SceneType.securityRoom.getAbbreviation());
         security.setInteractables(1);
         security.setTypeOfTrap("keypadTrap");
@@ -226,6 +241,7 @@ class MapControl {
                 + "\n without tripping even one. If you did leave it in the"
                 + "\n van you can run back and get it or try your luck at"
                 + "\n guessing. Either way you better get started!");
+        laser.setShortDescription("Laser Protected Hallway Challenge");
         laser.setAbbreviation(SceneType.laserRoom.getAbbreviation());    
         laser.setInteractables(1);
         laser.setTypeOfTrap("laserTrap");
@@ -239,6 +255,7 @@ class MapControl {
                 + "\n so you don't wake him up. Your job is to try to steal the"
                 + "\n key to the safe off his belt in order to avoid calculating"
                 + "\n how to blow it up later. The clock's ticking! ");
+        control.setShortDescription("Control Room Challenge");
         control.setAbbreviation(SceneType.controlRoom.getAbbreviation());
         control.setInteractables(1);
         control.setTypeOfTrap("guardTrap");
@@ -254,6 +271,7 @@ class MapControl {
                 + "\n much and it'll be the last thing you ever do. I hope"
                 + "\n you brought that tape measure. If not you could make an"
                 + "\n educated guess but I would not recommend it. Tick Tock!");
+        admin.setShortDescription("Administration Room Challenge");
         admin.setAbbreviation(SceneType.administration.getAbbreviation());
         admin.setInteractables(1);
         admin.setTypeOfTrap("");
