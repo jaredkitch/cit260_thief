@@ -5,6 +5,9 @@
  */
 package thief.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import thief.Thief;
 import thief.model.DummyRoom;
 import thief.model.Location;
 import thief.model.Map;
@@ -16,12 +19,15 @@ import thief.model.TrapScene;
  */
 public class MapView {
     
+    private final BufferedReader keyboard = Thief.getInFile();
+    private final PrintWriter console = Thief.getOutFile();
+    
     public MapView(Map map) {
         String openingMenu =
         "\n.-------------------------------------------------------------------"
       + "\n| The Metropolitan Museum of Central City"
       + "\n|-------------------------------------------------------------------";
-        System.out.println(openingMenu);
+        this.console.println(openingMenu);
 Location[][][] locations = map.getLocations();
 //Determines floors locations
         for (int i = 0; i < 2; i++) {
@@ -70,12 +76,12 @@ Location[][][] locations = map.getLocations();
  
                     }
                     line += "|"; 
-                 System.out.print(line);     
+                 this.console.println(line);     
                 }
-                System.out.println("\n|  '------'------'------'------'");
+                this.console.println("\n|  '------'------'------'------'");
         }
         
-        System.out.println("|\n" +
+        this.console.println("|\n" +
                "|   || = locked entry\n" +
                "|   \n" +
                "|   Van - Loading dock (to van)   DR - Diamond\n" +
