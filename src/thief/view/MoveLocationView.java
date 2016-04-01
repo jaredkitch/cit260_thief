@@ -160,12 +160,14 @@ public class MoveLocationView extends View {
 
     private void moveToTheNorth(int loc) {
         player.setLocation((loc - 4));
+        int newLoc = player.getLocation();
         player.setyAxis((yAxis - 1));
+        yAxis = player.getyAxis();
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location " + loc 
+      + "\n| You just moved one room to location " + newLoc 
       + "\n'-------------------------------------------------------------------"
         );
         this.console.println(location[zAxis][xAxis][yAxis].getDescription());
@@ -174,12 +176,14 @@ public class MoveLocationView extends View {
 
     private void moveToTheSouth(int loc) {
         player.setLocation((loc + 4));
+        int newLoc = player.getLocation();
         player.setyAxis((yAxis + 1));
+        yAxis = player.getyAxis();
         this.console.println(
      "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location " + loc 
+      + "\n| You just moved one room to location " + newLoc 
       + "\n'-------------------------------------------------------------------"
         );
         this.console.println(location[zAxis][xAxis][yAxis].getDescription());
@@ -187,12 +191,14 @@ public class MoveLocationView extends View {
 
     private void moveToTheWest(int loc) {
         player.setLocation((loc - 1));
+        int newLoc = player.getLocation();
         player.setxAxis((xAxis - 1));
+        xAxis = player.getxAxis();
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location " + loc 
+      + "\n| You just moved one room to location " + newLoc 
       + "\n'-------------------------------------------------------------------"
         );
         this.console.println(location[zAxis][xAxis][yAxis].getDescription());
@@ -200,12 +206,14 @@ public class MoveLocationView extends View {
 
     private void moveToTheEast(int loc) {
         player.setLocation((loc + 1));
+        int newLoc = player.getLocation();
         player.setxAxis((xAxis + 1));
+        xAxis = player.getxAxis();
         this.console.println(
        "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location " + loc 
+      + "\n| You just moved one room to location " + newLoc  
       + "\n'-------------------------------------------------------------------"
         );
         this.console.println(location[zAxis][xAxis][yAxis].getDescription());
@@ -216,6 +224,8 @@ public class MoveLocationView extends View {
         player.setzAxis((zAxis - 1));
         player.setyAxis((yAxis + 1));
         player.setLocation(4);
+        xAxis = player.getxAxis();
+        zAxis = player.getzAxis();
             this.console.println(
             "\n.-------------------------------------------------------------------"
           + "\n| Move Confirmed"
@@ -226,11 +236,13 @@ public class MoveLocationView extends View {
         } else {
         player.setLocation((loc - 12));
         player.setzAxis((zAxis - 1));
+        int newLoc = player.getLocation();
+        zAxis = player.getzAxis();
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location " + loc 
+      + "\n| You just moved one room to location " + newLoc 
       + "\n'-------------------------------------------------------------------");
         this.console.println(location[zAxis][xAxis][yAxis].getDescription());
         }
@@ -240,6 +252,8 @@ public class MoveLocationView extends View {
         if (loc == 4){
         player.setzAxis((zAxis + 1));
         player.setyAxis((yAxis - 1));
+        xAxis = player.getxAxis();
+        zAxis = player.getzAxis();
         player.setLocation(12);
         this.console.println(
         "\n.-------------------------------------------------------------------"
@@ -251,11 +265,13 @@ public class MoveLocationView extends View {
         } else {
         player.setzAxis((zAxis + 1));
         player.setLocation((loc + 12));
+        int newLoc = player.getLocation();
+        zAxis = player.getzAxis();
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location  " + loc 
+      + "\n| You just moved one room to location  " + newLoc  
       + "\n'-------------------------------------------------------------------");
         this.console.println(location[zAxis][xAxis][yAxis].getDescription());
         }
