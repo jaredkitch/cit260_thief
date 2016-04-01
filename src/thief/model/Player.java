@@ -80,7 +80,7 @@ public class Player implements Serializable {
 
     public static  InventoryItem[] createInventoryList() {
          
-        InventoryItem[] inventory = new InventoryItem[13];
+InventoryItem[] inventory = new InventoryItem[13];
         
         InventoryItem c4 = new InventoryItem();
         c4.setDescription("C4 Explosives");
@@ -89,23 +89,62 @@ public class Player implements Serializable {
         
         InventoryItem measuringTape = new InventoryItem();
         measuringTape.setDescription("Measuring Tape");
-        measuringTape.setItemNumber(19);
         inventory[Supplies.measuringTape.ordinal()] = measuringTape;
         
         InventoryItem calculator = new InventoryItem();
         calculator.setDescription("Calculator");
-        calculator.setItemNumber(1);
-        inventory[2] = calculator;
+        calculator.setItemNumber(3);
+        inventory[Supplies.calculator.ordinal()] = calculator;
         
         InventoryItem crowbar = new InventoryItem();
         crowbar.setDescription("Crowbar");
-        crowbar.setItemNumber(8);
-        inventory[3] = crowbar;
+        crowbar.setItemNumber(4);
+        inventory[Supplies.crowbar.ordinal()] = crowbar;
         
         InventoryItem gun = new InventoryItem();
         gun.setDescription("Gun");
-        gun.setItemNumber(10);
-        inventory[4] = gun;
+        gun.setItemNumber(5);
+        inventory[Supplies.gun.ordinal()] = gun;
+        
+        InventoryItem night = new InventoryItem();
+        night.setDescription("Night Vision Goggles");
+        night.setItemNumber(6);
+        inventory[Supplies.nightVisionGoggles.ordinal()] = night;
+        
+        InventoryItem lockpick = new InventoryItem();
+        lockpick.setDescription("Lock Pick");
+        lockpick.setItemNumber(7);
+        inventory[Supplies.lockPick.ordinal()] = lockpick;
+        
+        InventoryItem flashlight = new InventoryItem();
+        flashlight.setDescription("Flash Light");
+        flashlight.setItemNumber(8);
+        inventory[Supplies.flashlight.ordinal()] = flashlight;
+        
+        InventoryItem glassCutter = new InventoryItem();
+        glassCutter.setDescription("Glass Cutter");
+        glassCutter.setItemNumber(9);
+        inventory[Supplies.glassCutter.ordinal()] = glassCutter;
+        
+        InventoryItem rope = new InventoryItem();
+        rope.setDescription("Rope");
+        rope.setItemNumber(10);
+        inventory[Supplies.rope.ordinal()] = rope;
+        
+        InventoryItem phone = new InventoryItem();
+        phone.setDescription("Phone");
+        phone.setItemNumber(11);
+        inventory[Supplies.phone.ordinal()] = phone;
+        
+        InventoryItem laptop = new InventoryItem();
+        laptop.setDescription("Laptop");
+        laptop.setItemNumber(12);
+        inventory[Supplies.laptop.ordinal()] = laptop;
+        
+        InventoryItem smokebombs = new InventoryItem();
+        smokebombs.setDescription("Smokebombs");
+        smokebombs.setItemNumber(13);
+        inventory[Supplies.smokeBombs.ordinal()] = smokebombs;
         
         return inventory;
         

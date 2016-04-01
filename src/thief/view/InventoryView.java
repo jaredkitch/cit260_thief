@@ -6,6 +6,10 @@
 package thief.view;
 
 import java.util.Scanner;
+import thief.Thief;
+import thief.model.Game;
+import thief.model.InventoryItem;
+import thief.model.Player;
 
 /**
  *
@@ -28,6 +32,23 @@ class InventoryView extends View {
       + "\n|-------------------------------------------------------------------");
     }
 
+    public void printListOfInventory() {
+           Game game = Thief.getCurrentGame();
+           Player player = game.getPlayer();
+            
+           this.console.println("\nList of Inventory Items");
+           StringBuilder line = new StringBuilder("                                          ");
+           line.insert(0, "Description");
+           this.console.println(line.toString());
+           
+           InventoryItem[] inventory = player.getPlayerinven();
+            for (InventoryItem item : inventory) {
+                line = new StringBuilder("                                     ");
+                line.insert(0, item.getDescription());
+                this.console.println(line.toString());
+            }
+    }
+    
     @Override
     public boolean doAction(String choice) {
         
