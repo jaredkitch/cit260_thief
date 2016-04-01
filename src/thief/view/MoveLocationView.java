@@ -6,7 +6,10 @@
 package thief.view;
 
 import thief.Thief;
+import thief.model.Game;
+import thief.model.Map;
 import thief.model.Player;
+import thief.model.Location;
 
 /**
  *
@@ -14,6 +17,15 @@ import thief.model.Player;
  */
 public class MoveLocationView extends View {
     
+        Player player = Thief.getPlayer();
+        int xAxis = player.getxAxis();
+        int yAxis = player.getyAxis();
+        int zAxis = player.getzAxis();
+        Game game = Thief.getCurrentGame();
+        Map map = game.getMap();
+        Location[][][] location = map.getLocations();
+        
+        
     public MoveLocationView() {
                super(
                       "First Floor                     Second Floor\n" +
@@ -29,7 +41,6 @@ public class MoveLocationView extends View {
                "\n"
                +"\n.-------------------------------------------------------------------");
                
-        Player player = Thief.getPlayer();     
         String out = "\n.-------------------------------------------------------------------"
                    + "\n| Select the direction you want to move from the map below.         "    
                    + "\n| Remember your moves are limited so choose wisely.                 " 
@@ -63,7 +74,7 @@ public class MoveLocationView extends View {
         }
         //Generate Down Available Rooms
         if (loc == 20 || loc == 19 || loc == 12){
-            out += "\n D - Move Down to the Previous Level";
+            out += "\n| D - Move Down to the Previous Level";
         }
         out += "\n|-------------------------------------------------------------------"
                 + "\n";
@@ -134,8 +145,10 @@ public class MoveLocationView extends View {
                 } else {
                     this.console.println("\n***************************************"
                                        + "\n***** Invalid Selection Try Again *****"
-                                       + "\n***************************************");                    
-                }              
+                                       + "\n***************************************");
+               
+                }
+                break;
             default:
                 this.console.println("\n***************************************"
                                    + "\n***** Invalid Selection Try Again *****"
@@ -146,95 +159,105 @@ public class MoveLocationView extends View {
     }
 
     private void moveToTheNorth(int loc) {
-        Player player = Thief.getPlayer();
         player.setLocation((loc - 4));
+        player.setyAxis((yAxis - 1));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location" + loc 
+      + "\n| You just moved one room to location " + loc 
       + "\n'-------------------------------------------------------------------"
         );
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
+        
     }
 
     private void moveToTheSouth(int loc) {
-        Player player = Thief.getPlayer();
         player.setLocation((loc + 4));
+        player.setyAxis((yAxis + 1));
         this.console.println(
      "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location" + loc 
+      + "\n| You just moved one room to location " + loc 
       + "\n'-------------------------------------------------------------------"
         );
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
     }
 
     private void moveToTheWest(int loc) {
-        Player player = Thief.getPlayer();
         player.setLocation((loc - 1));
+        player.setxAxis((xAxis - 1));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location" + loc 
+      + "\n| You just moved one room to location " + loc 
       + "\n'-------------------------------------------------------------------"
         );
-
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
     }
 
     private void moveToTheEast(int loc) {
-        Player player = Thief.getPlayer();
         player.setLocation((loc + 1));
+        player.setxAxis((xAxis + 1));
         this.console.println(
        "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location" + loc 
+      + "\n| You just moved one room to location " + loc 
       + "\n'-------------------------------------------------------------------"
         );
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
     }
 
     private void moveToLowerFloor(int loc) {
         if (loc == 12) {
-        Player player = Thief.getPlayer();
-        player.setLocation(5);
+        player.setzAxis((zAxis - 1));
+        player.setyAxis((yAxis + 1));
+        player.setLocation(4);
             this.console.println(
             "\n.-------------------------------------------------------------------"
           + "\n| Move Confirmed"
           + "\n|-------------------------------------------------------------------"
           + "\n| You Succesffully Crawl through the Air Ducts."
           + "\n'-------------------------------------------------------------------");
+            this.console.println(location[zAxis][xAxis][yAxis].getDescription());
         } else {
-        Player player = Thief.getPlayer();
         player.setLocation((loc - 12));
+        player.setzAxis((zAxis - 1));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location" + loc 
+      + "\n| You just moved one room to location " + loc 
       + "\n'-------------------------------------------------------------------");
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
         }
     }
 
     private void movetoUpperFloor(int loc) {
-        if (loc == 5){
-        Player player = Thief.getPlayer();
+        if (loc == 4){
+        player.setzAxis((zAxis + 1));
+        player.setyAxis((yAxis - 1));
         player.setLocation(12);
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
       + "\n| You Succesffully Crawl through the Air Ducts."
-      + "\n'-------------------------------------------------------------------");
+      + "\n'-------------------------------------------------------------------");        
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
         } else {
-        Player player = Thief.getPlayer();
-        player.setLocation((loc + 12));            
+        player.setzAxis((zAxis + 1));
+        player.setLocation((loc + 12));
         this.console.println(
         "\n.-------------------------------------------------------------------"
       + "\n| Move Confirmed"
       + "\n|-------------------------------------------------------------------"
-      + "\n| You just moved one room to location" + loc 
+      + "\n| You just moved one room to location  " + loc 
       + "\n'-------------------------------------------------------------------");
+        this.console.println(location[zAxis][xAxis][yAxis].getDescription());
         }
     }
 

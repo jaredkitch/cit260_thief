@@ -3,6 +3,7 @@
  */
 package thief.model;
 
+import thief.model.Supplies;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -19,9 +20,11 @@ public class Player implements Serializable {
     private double fastestTime;
     private double biggestHaul;
     private InventoryItem inventory;
-    private StolenItems stolenItems;
     private InventoryItem[] playerinven;
-    
+    private int[] stolenItems;
+    private int xAxis;
+    private int yAxis;
+    private int zAxis;
     
     public Player() {
         
@@ -67,27 +70,27 @@ public class Player implements Serializable {
         this.inventory = inventory;
     }
 
-    public StolenItems getStolenItems() {
+    public int[] getStolenItems() {
         return stolenItems;
     }
 
-    public void setStolenItems(StolenItems stolenItems) {
+    public void setStolenItems(int[] stolenItems) {
         this.stolenItems = stolenItems;
     }
 
     public static  InventoryItem[] createInventoryList() {
          
-        InventoryItem[] inventory = new InventoryItem[5];
+        InventoryItem[] inventory = new InventoryItem[13];
         
         InventoryItem c4 = new InventoryItem();
         c4.setDescription("C4 Explosives");
         c4.setItemNumber(4);
-        inventory[0] = c4;
+        inventory[Supplies.c4Explosives.ordinal()] = c4;
         
         InventoryItem measuringTape = new InventoryItem();
         measuringTape.setDescription("Measuring Tape");
         measuringTape.setItemNumber(19);
-        inventory[1] = measuringTape;
+        inventory[Supplies.measuringTape.ordinal()] = measuringTape;
         
         InventoryItem calculator = new InventoryItem();
         calculator.setDescription("Calculator");
@@ -124,7 +127,31 @@ public class Player implements Serializable {
         
         return stolenItems;
     }
-            
+
+    public int getxAxis() {
+        return xAxis;
+    }
+
+    public void setxAxis(int xAxis) {
+        this.xAxis = xAxis;
+    }
+
+    public int getyAxis() {
+        return yAxis;
+    }
+
+    public void setyAxis(int yAxis) {
+        this.yAxis = yAxis;
+    }
+
+    public int getzAxis() {
+        return zAxis;
+    }
+
+    public void setzAxis(int zAxis) {
+        this.zAxis = zAxis;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;

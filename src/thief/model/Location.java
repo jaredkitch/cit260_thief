@@ -24,6 +24,7 @@ public class Location implements Serializable{
     private DummyRoom dummyRoom;
     private TrapScene trapScene;
     private String type;
+    private String description;
 
     public Location() {
     }
@@ -102,6 +103,15 @@ public class Location implements Serializable{
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+        
     
     @Override
     public int hashCode() {

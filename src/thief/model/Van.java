@@ -16,8 +16,7 @@ public class Van implements Serializable {
 
  
     public Van() {
-        this.supplies = supplies;
-            
+        this.supplies = supplies;           
     }
 
   public Supplies getSupplies() {
