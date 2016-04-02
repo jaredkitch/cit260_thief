@@ -6,52 +6,43 @@
 package thief.view;
 
 import exceptions.TrapControlExceptions;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import thief.Thief;
-import thief.control.*;
 import thief.model.Game;
-import thief.model.InventoryItem;
 import thief.model.Map;
-import thief.model.Supplies;
+import thief.model.Player;
 
 /**
- *
  * @author Jon
  */
 public class GameMenuView extends View{
 
+    Player player = Thief.getPlayer();
     
     public GameMenuView() {
+        
         super(
         "\n.-------------------------------------------------------------------"
       + "\n| Game Menu"
       + "\n|-------------------------------------------------------------------"
       + "\n| M - Move Location"
       + "\n| S - Search Room"
-      + "\n| R - List Current Inventory"
-      + "\n| N - Add Items to Inventory"
+      + "\n| R - List Inventory"
       + "\n| I - Items to Steal"
       + "\n| C - Items Stolen"
-      + "\n| B - Blow Open Safe"
-      + "\n| L - Pick Lock"         
-      + "\n| K - Sneak"
-      + "\n| D - Avoid Lasers"          
-      + "\n| P - Security Keypad Equation"          
       + "\n| V - View Map"
       + "\n| H - Help"             
       + "\n| A - Save and Quit"          
       + "\n| Q - Quit"
       + "\n|-------------------------------------------------------------------");
+
     }
-
-    
-
-
 
     @Override
     public boolean doAction(String choice) {
+        
+        int loc = player.getLocation();
         
         switch (choice) {
             case "M":
@@ -61,10 +52,7 @@ public class GameMenuView extends View{
                 this.searchRoom();
                 break;
             case "R":
-                this.listCurrentInventory();
-                break;
-            case "N":
-                this.addItemToInventory();
+                this.listInventory();
                 break;
             case "I":
                 this.itemsToSteal();
@@ -73,31 +61,62 @@ public class GameMenuView extends View{
                 this.itemsStolen();
                 break;
             case "B":
-        {
-            try {
-                this.blowUpSafe();
-            } catch (TrapControlExceptions ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                {
+                if (loc != 13) {
+                    ErrorView.display(this.getClass().getName(),
+                          "\n***************************************"
+                        + "\n***** Invalid Selection Try Again *****"
+                        + "\n***************************************");
+                } else {
+                    try {
+                        this.blowUpSafe();
+                        }
+                    catch (TrapControlExceptions ex) {
+                        Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
                 break;
             case "L":
-                this.pickLock();
-                break;
-            case "K":
-                this.sneak();
+                {
+                if (loc != 7 && loc != 17 && loc != 18) {
+                    ErrorView.display(this.getClass().getName(),
+                          "\n***************************************"
+                        + "\n***** Invalid Selection Try Again *****"
+                        + "\n***************************************");
+                } else {
+                    this.pickLock();
+                    }
+                }
                 break;
             case "D":
-                this.dodgeLasers();
+                {
+                if (loc != 17) {
+                    ErrorView.display(this.getClass().getName(),
+                          "\n***************************************"
+                        + "\n***** Invalid Selection Try Again *****"
+                        + "\n***************************************");
+                } else {
+                    this.dodgeLasers();
+                    }
+                }
                 break;  
             case "P":
-        {
-            try {
-                this.keypadEquation();
-            } catch (TrapControlExceptions ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                {
+                if (loc != 3) {
+                    ErrorView.display(this.getClass().getName(),
+                          "\n***************************************"
+                        + "\n***** Invalid Selection Try Again *****"
+                        + "\n***************************************");
+                } else {
+                    try {
+                        this.keypadEquation();
+                        }
+                    catch (TrapControlExceptions ex) {
+                        Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
                 break;    
             case "V":
                 this.viewMap();
@@ -106,7 +125,7 @@ public class GameMenuView extends View{
                 this.displayHelpMenu();
                 break;
             case "A":
-                this.sneak();
+                this.saveAndQuit();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(),
@@ -127,6 +146,11 @@ public class GameMenuView extends View{
         this.console.println("*** SearchRoom stub function called ***");
     }
 
+    private void listInventory() {
+        InventoryView inventoryMenu = new InventoryView();
+        inventoryMenu.printListOfInventory();
+    }
+    
     private void itemsToSteal() {
         ItemsToStealView toStealMenu = new ItemsToStealView();
         toStealMenu.display();
@@ -145,10 +169,6 @@ public class GameMenuView extends View{
         this.console.println("*** PickLock stub function called ***");
     }
 
-    private void sneak() {
-        this.console.println("*** Sneak stub function called ***");
-    }
-
     private void dodgeLasers() {
         AvoidLasersView avoidLasers = new AvoidLasersView();
         avoidLasers.displayMenu();
@@ -160,27 +180,17 @@ public class GameMenuView extends View{
     }
 
     private void viewMap() {
-        
         Game game = Thief.getCurrentGame();
         Map map = game.getMap();
         MapView viewMap = new MapView(map);
     }
     
     private void displayHelpMenu() {
-
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
-
-    }
-
-    private void listCurrentInventory() {
-        InventoryView inventoryMenu = new InventoryView();
-        inventoryMenu.printListOfInventory();
-    }
-
-    private void addItemToInventory() {
-        ItemToInventory inventory = new ItemToInventory();
-        inventory.display();
     }
     
+    private void saveAndQuit() {
+        this.console.println("*** Save and Quit stub function called ***");
+    }
 }

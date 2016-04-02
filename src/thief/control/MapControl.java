@@ -110,7 +110,8 @@ class MapControl {
                 + "\n into the security room and see if you can make your"
                 + "\n job a little easier from here on out by turning off"
                 + "\n the cameras or shutting down the laser field, but"
-                + "\n remember, at least one guard is always stationed there.");
+                + "\n remember, at least one guard is always stationed there."
+                + "\n\n Additional options: 'L' to Pick the Lock");
         mainEntry.setShortDescription("Main Entry");
         mainEntry.setAbbreviation(SceneType.mainEntry.getAbbreviation());
         scenes[SceneType.mainEntry.ordinal()] = mainEntry;
@@ -152,7 +153,8 @@ class MapControl {
                 + "\n You made it! The diamonds are your biggest mark of the"
                 + "\n night, however, they are also the museums most expensive"
                 + "\n and most guarded item. Watch what you are doing as you"
-                + "\n search the room.");
+                + "\n search the room."
+                + "\n\n Additional options: 'B' to Blow Open the Safe");
         diamonds.setShortDescription("The Diamond Room");
         diamonds.setAbbreviation(SceneType.diamondRoom.getAbbreviation());
         diamonds.setInteractables(1);
@@ -222,7 +224,8 @@ class MapControl {
                 + "\n hallway. Luckily the guard has left a piece of paper next"
                 + "\n to it with three numbers on it. You must figure out which"
                 + "\n number goes in which spot or risk setting off the alarm."
-                + "\n Good luck!");
+                + "\n Good luck!"
+                + "\n\n Additional options: 'P' to Access the Keypad");
         security.setShortDescription("Security Room Keypad");
         security.setAbbreviation(SceneType.securityRoom.getAbbreviation());
         security.setInteractables(1);
@@ -240,7 +243,9 @@ class MapControl {
                 + "\n how large your footsteps need to be to make it through"
                 + "\n without tripping even one. If you did leave it in the"
                 + "\n van you can run back and get it or try your luck at"
-                + "\n guessing. Either way you better get started!");
+                + "\n guessing. Either way you better get started!"
+                + "\n\n Additional options: 'D' to Attempt to Avoid the Lasers"
+                + "\n                     'L' to Pick the Lock");
         laser.setShortDescription("Laser Protected Hallway Challenge");
         laser.setAbbreviation(SceneType.laserRoom.getAbbreviation());    
         laser.setInteractables(1);

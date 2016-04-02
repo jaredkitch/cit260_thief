@@ -30,7 +30,8 @@ public enum SceneType {
                 + "\n hallway. Luckily the guard has left a piece of paper next"
                 + "\n to it with three numbers on it. You must figure out which"
                 + "\n number goes in which spot or risk setting off the alarm."
-                + "\n Good luck!"),
+                + "\n Good luck!"
+                + "\n\n Additional options: 'P' to Access the Keypad"),
     restrooms(" R    ",                   "\n                  ***Bathrooms***"
                 + "\n You made it to the bathrooms. Now look up. This is the"
                 + "\n one and only room where you can get into the airducts"
@@ -49,7 +50,8 @@ public enum SceneType {
                 + "\n into the security room and see if you can make your"
                 + "\n job a little easier from here on out by turning off"
                 + "\n the cameras or shutting down the laser field, but"
-                + "\n remember, at least one guard is always stationed there."),
+                + "\n remember, at least one guard is always stationed there."
+                + "\n\n Additional options: 'L' to Pick the Lock"),
     stairs(" ST  ",                    "\n                  ***Stairs***"
                 + "\n Just a bunch of stairs that lead to four of your five"
                 + "\n marks. Yes. Four or the five big money items are on the"
@@ -69,7 +71,8 @@ public enum SceneType {
                 + "\n You made it! The diamonds are your biggest mark of the"
                 + "\n night, however, they are also the museums most expensive"
                 + "\n and most guarded item. Watch what you are doing as you"
-                + "\n search the room."),
+                + "\n search the room."
+                + "\n\n Additional options: 'B' to Blow Open the Safe"),
     administration("   A  |",                 "\n            ***Administration Room Challenge***"
                 + "\n This is the room with the safe. It contains... "
                 + "\n In order to blow up the safe you will have to calculate"
@@ -96,7 +99,9 @@ public enum SceneType {
                 + "\n how large your footsteps need to be to make it through"
                 + "\n without tripping even one. If you did leave it in the"
                 + "\n van you can run back and get it or try your luck at"
-                + "\n guessing. Either way you better get started!"),
+                + "\n guessing. Either way you better get started!"
+                + "\n\n Additional options: 'D' to Attempt to Avoid the Lasers"
+                + "\n                     'L' to Pick the Lock"),
     balcony("    B  ",                 "\n                  ***The Balcony***"
                 + "\n You made it to the balcony. Now take a quick"
                 + "\n sec to take in the view and catch your breath."
